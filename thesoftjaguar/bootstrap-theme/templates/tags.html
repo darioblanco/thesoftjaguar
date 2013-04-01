@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block navbar %}
+    {% set active_page = "tags" %}
+    {% include "navbar.html" %}
+{% endblock %}
+{% block content %}
+    <h1 class="page-title">Tags</h1>
+    <p>
+    {% for tag in tag_cloud %}
+        <a class="tag-{{ tag.1 }}" href="/tag/{{ tag.0 }}/">{{ tag.0 }}</a></li>
+    {% endfor %}
+    </p>
+{% endblock %}

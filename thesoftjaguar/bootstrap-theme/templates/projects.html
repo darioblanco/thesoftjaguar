@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block navbar %}
+    {% set active_page = "projects" %}
+    {% include "navbar.html" %}
+{% endblock %}
+{% block content %}
+      <div class="hero-unit">
+        <h1>My Projects</h1>
+        <p><br>I like to share my code, it helps me to improve my skills because I can see how I was programming in the past, and I can have precious feedback from other colleagues.</p>
+      </div>
+
+      <div class="row">
+        <div class="span4">
+          <h2>Balam</h2>
+          <p>Own cloud computing system applied to mobile phones. Manages data from Android devices and allows their management from a web application developed with Django over Tornado.</p>
+          <p><a class="btn" href="http://balam.darioblanco.com" target="_blank">View project &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Blogjaguar</h2>
+          <p>My own blog engine using Django. Blogpost management, categories, links, comment system, WYSIWYG editor, OAuth, theme manager and much more.</p>
+          <p><a class="btn" href="https://github.com/sharkerz/blogjaguar" target="_blank">View project &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>More...</h2>
+          <p>I have more projects on going. You will find unfinished projects (mitosis), informal projects programmed for spending the time, projects as old as the dinosaurs and some contributions.</p>
+          <p><a class="btn" href="https://github.com/sharkerz" target="_blank">Check them in Github &raquo;</a></p>
+        </div>
+      </div>
+{% endblock content %}
