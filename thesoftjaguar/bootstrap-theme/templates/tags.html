@@ -5,9 +5,9 @@
 {% endblock %}
 {% block content %}
     <h1 class="page-title">Tags</h1>
-    <p>
+    <ul class="tagcloud">
     {% for tag in tag_cloud %}
-        <a class="tag-{{ tag.1 }}" href="/tag/{{ tag.0 }}/">{{ tag.0 }}</a></li>
+        <li><a class="tag-{{ tag.1 }}" href="/tag/{{ tag.0 }}/">{{ tag.0 }}</a></li>
     {% endfor %}
-    </p>
+    </ul>
 {% endblock %}
