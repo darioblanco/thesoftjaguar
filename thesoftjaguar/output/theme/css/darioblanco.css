@@ -75,6 +75,3 @@ footer {
   padding: 0 10px;
   display: inline;
 }
-
-/*For avoiding conflicts with pygmentize */
-/*code{color:rgba(0, 0, 0, 0.75);padding:1px 3px;}*/

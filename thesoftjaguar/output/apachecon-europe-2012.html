@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>The soft jaguar</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Darío Blanco webpage">
+    <meta name="author" content="Darío Blanco">
+    <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./theme/css/darioblanco.css" rel="stylesheet">
+    <link href="./theme/css/pygments.css" rel="stylesheet">
+    <style> body { padding-top: 60px; }</style>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <link href="http://thesoftjaguar.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Full Atom Feed" />
+            <link href="http://thesoftjaguar.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Full RSS Feed" />
+                    <link href="http://thesoftjaguar.com/feeds/programming.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Categories Atom Feed" />
+            <link href="http://thesoftjaguar.com/feeds/programming.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Categories RSS Feed" />
+                </head>
+
+<body>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="./index.html">The soft jaguar</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+                        <li id="blog-tab" class="navbar-tab active"><a href="./index.html"><i class="icon-pencil icon-white"></i> Blog</a></li>
+                        <li id="archive-tab" class="navbar-tab "><a href="./archives.html"><i class="icon-briefcase icon-white"></i> Archive</a></li>
+                        <li id="tags-tab" class="navbar-tab "><a href="./tags.html"><i class="icon-certificate icon-white"></i> Tags</a></li>
+                        <li id="projects-tab" class="navbar-tab "><a href="./projects.html"><i class="icon-wrench icon-white"></i> Projects</a></li>
+                    </ul>
+        <ul class="nav pull-right">
+            <li><a href="http://www.linkedin.com/in/darioblancoiturriaga" target="_blank" title="LinkedIn"><img width="16" src="./theme/img/linkedin.png"></a></li>
+            <li><a href="https://github.com/sharkerz" target="_blank" title="Github"><img width="16" src="./theme/img/github.png"></a></li>
+            <li><a href="https://www.facebook.com/dario.blancoit" target="_blank" title="Facebook"><img width="16" src="./theme/img/facebook.png"></a></li>
+            <li><a href="https://twitter.com/darioblanco" target="_blank" title="Twitter"><img width="16" src="./theme/img/twitter.png"></a></li>
+            <li><a href="mailto:dario@darioblanco.com" target="_blank" title="Email"><img width="16" src="./theme/img/email.png"></a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>    
+    <div class="container">
+    <header>
+  <h1 class="entry-title">
+    <a href="apachecon-europe-2012.html" rel="bookmark"
+       title="Permalink to ApacheCon Europe 2012">ApacheCon Europe 2012</a>
+  </h1>
+
+</header>
+<span class="badge">
+  written on dom 11 noviembre 2012
+</span>
+<article>
+<div class="entry-content">
+  <p><p>On Wednesday it was ApacheCon day, lot of interesting stuff regarding Apache Lucene, Solr and Elasticsearch. I am not an expert with search engines, and this is a good start for establishing the basic concepts and understanding how some people have solved search problems in their systems.</p>
+<p><img alt="Captain Obvious strikes again" src="https://pbs.twimg.com/media/A7Fb2aPCAAAtQy2.jpg" /></p>
+<h2>Compound Terms Query Parser for Great Shopping Experience</h2>
+<p>This <a href="http://www.apachecon.eu/schedule/presentation/18/?utm_source=twitter&amp;utm_medium=social&amp;utm_content=79e580ba-95ca-43cb-9739-95693cf4770e">talk</a> explained the problem of returning precise search results when there are tricky queries, based on <a href="http://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;ved=0CCcQFjAA&amp;url=http%3A%2F%2Flucene.sourceforge.net%2Fpapers%2Friao97.ps&amp;ei=7O-fUPHRLYSh4gTA4IGQCA&amp;usg=AFQjCNF3SmHeiPe-h1A48ztdx8Qx1R-r7w">Space Optimizations for Total Ranking&lt;</a> paper, and a match spotting using the info explained by the client and facet counts.</p>
+<p>However, there are some queries which are almost impossible to guess, like for example <code>red jeans</code> in a search system which supports colors, you will have red clothes matches, matches with trademarks whose name contains <code>red</code> or <code>jeans</code>. You can minimize the problem, and of course the client only wants exact results, not a huge list of results that he is not going to check, but at the end a nice approach will be less guessing and more freedom to the client in his queries, for instance, specifying if he want to search by color or by trademark.</p>
+<h2>Choosing the right tool for your data analysis task - Apache Mahout in context</h2>
+<p>A nice <a href="http://www.apachecon.eu/schedule/presentation/1/">explanation</a> of the Apache Mahout project and use cases of what we can do with our huge load of data.</p>
+<p>A good example of this is the <code>Frequently Bought Together</code> and <code>What Other Items Do Customers Buy After Viewing This Item?</code> tags in an Amazon product page.</p>
+<h2>Big Search with Big Data Principles</h2>
+<p>Eric presented his <a href="http://www.apachecon.eu/schedule/presentation/13/">problem</a>, which consisted in millions of text documents that should be indexed, and they could have really strange formats.</p>
+<p>The solution was nice, applying technologies in which they were familiar with, and then he spoke about <code>Solr4</code>. We should highlight that <code>Solr</code> is becoming a noSQL database itself (<code>Elasticsearch</code> as well), having a key/value store engine, and they used <code>.avro</code> files for the cache, which was quite interesting.</p>
+<p>Other design choices were <code>ZooKeeper</code> over <code>NFS</code>, <code>SCP</code>, etc.. for sending files between nodes (less error prone and more obvious reasons, <code>ZooKeeper</code> is powerful), <code>Apache Tika</code> as a pipeline, handling the errors with an error query, <code>Solrmeter</code> for monitoring (the central monitoring using <code>Nagios</code> with the <code>Solr</code> plugin), a pooled environment (like for example 1 node for development, 6 for production and the rest for load testing) and a <code>Grim Reaper</code> for restarting instances which are not working as expected.</p>
+<p>In addition, there were some problems which are still present, like the user queries analysis, done with Solrmeter or reading them in an excel file, and the cycle scavenging, which is being done with <code>Condor</code> but not without complications.</p></p>
+<p><img alt="Hoffenheim Arena looks good at night" src="http://i.imgur.com/puR3H.jpg" /></p>
+<h2>Solr 4: The SolrCloud Architecture</h2>
+<p>And it was the turn of <a href="http://www.apachecon.eu/schedule/presentation/23/">showing</a> how to hack a project that wasn't planned for distributed searching from the beggining, one of the biggest weaknesses in Solr.</p>
+<p>I want to highlight the use of <code>MurmurHash</code> for assigning the documents to the different shards, <code>ZooKeeper</code> again (in Elasticsearch this is definitely handled in a nicer way), <code>PeerSync</code> for data replication and so on, and a last introduction to Netflix child: <code>Chaos Monkey</code>, used for testing.</p>
+<p>SolrCloud hasn't convinced me, there are some problems when you want to scale the system, because there is a shard limit that you have to set at first, so <code>SolrCloud</code> will assign a hash range to each shard. There are some hacks for allowing this, like the shard split (so the hash range will be reassigned). That's another problem that we have in Elasticsearch, but the shard arranging is automatic.</p>
+<h2>Personalized Search on the Largest Flash Site in America (Gilt)</h2>
+<p>Another talk regarding a <a href="http://www.apachecon.eu/schedule/presentation/21/">problem</a> and how a company has solved it.</p>
+<p>They were using Solr for getting only the items id (<code>skuId</code> and <code>lookId</code>), so Solr had only the index. Then, they enriched the search result asking the database for the rest of the params. For being able to do all of this, they created three own plugins for Solr, I didn't like this approach and in one case was a little hacky, but they know better about their own systems and at the end it was working as they expected it to work.</p>
+<p>Like with the first talk, we had the problem of the search query: the product data is not clean, it can have distractive descriptions, poorly named colors and misleading brand names. It was interesting how tricky can be the synonyms if your search engine supports this feature. At the end we have the same conclusion: maybe it is better if you leave that choice to the user for avoiding bad results.</p>
+<p><img alt="Color names if you are a girl" src="https://pbs.twimg.com/media/A7G74L7CUAU6XLo.jpg" /></p>
+<h2>Battle of the giants: Apache Solr 4.0 vs Elasticsearch</h2>
+<p>The last <a href="http://www.apachecon.eu/schedule/presentation/24/">talk</a> was the one in which I put more expectations, and it didn't convince me, maybe because I was hyped.</p>
+<p>It was a brief explanation of each system, which is not bad, but some query examples would have helped a lot. Elasticsearch seemed really promising with the prospective search, nested objects, moving shard and replicas, more indices storage options, index structure and not needing to reload the config. And that's what Solr doesn't have.</p>
+<p>There were also some features supported by both and well, Solr supports multilingual data handling, but is not enough. I really want to try both systems but right now, from the beginning, <code>Elasticsearch</code> is more interesting for me, especially if I want to have a distributed search environment.</p></p>
+</div><!-- /.entry-content -->
+</article>
+        <hr>
+        <footer>
+            &copy; Darío Blanco 2012 - <a href="mailto:dario@darioblanco.com">dario@darioblanco.com</a>
+        </footer>
+    </div> <!-- /container -->
+
+    <script src="./theme/js/bootstrap.min.js"></script>
+</body>
+</html>
