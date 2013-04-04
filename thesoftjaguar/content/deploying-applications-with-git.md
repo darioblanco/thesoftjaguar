@@ -1,6 +1,6 @@
 Title: Deploying applications with git
 Date: 2012-02-29 16:33
-Tags: git, deployment, bare, non-bare, version control
+Tags: Git, deployment, bare, non-bare, version control
 Category: programming
 Slug: deploying-applications-with-git
 Summary: How to deploy easily your application using a git post-hook.
