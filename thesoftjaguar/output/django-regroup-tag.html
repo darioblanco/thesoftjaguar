@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>The soft jaguar</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Darío Blanco webpage">
+    <meta name="author" content="Darío Blanco">
+    <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./theme/css/darioblanco.css" rel="stylesheet">
+    <link href="./theme/css/pygments.css" rel="stylesheet">
+    <style> body { padding-top: 60px; }</style>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <link href="http://thesoftjaguar.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Full Atom Feed" />
+            <link href="http://thesoftjaguar.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Full RSS Feed" />
+                    <link href="http://thesoftjaguar.com/feeds/programming.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Categories Atom Feed" />
+            <link href="http://thesoftjaguar.com/feeds/programming.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Categories RSS Feed" />
+                </head>
+
+<body>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="./index.html">The soft jaguar</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+                        <li id="blog-tab" class="navbar-tab active"><a href="./index.html"><i class="icon-pencil icon-white"></i> Blog</a></li>
+                        <li id="archive-tab" class="navbar-tab "><a href="./archives.html"><i class="icon-briefcase icon-white"></i> Archive</a></li>
+                        <li id="tags-tab" class="navbar-tab "><a href="./tags.html"><i class="icon-certificate icon-white"></i> Tags</a></li>
+                        <li id="projects-tab" class="navbar-tab "><a href="./projects.html"><i class="icon-wrench icon-white"></i> Projects</a></li>
+                    </ul>
+        <ul class="nav pull-right">
+            <li><a href="http://www.linkedin.com/in/darioblancoiturriaga" target="_blank" title="LinkedIn"><img width="16" src="./theme/img/linkedin.png"></a></li>
+            <li><a href="https://github.com/sharkerz" target="_blank" title="Github"><img width="16" src="./theme/img/github.png"></a></li>
+            <li><a href="https://www.facebook.com/dario.blancoit" target="_blank" title="Facebook"><img width="16" src="./theme/img/facebook.png"></a></li>
+            <li><a href="https://twitter.com/darioblanco" target="_blank" title="Twitter"><img width="16" src="./theme/img/twitter.png"></a></li>
+            <li><a href="mailto:dario@darioblanco.com" target="_blank" title="Email"><img width="16" src="./theme/img/email.png"></a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>    
+    <div class="container">
+    <header>
+  <h1 class="entry-title">
+    <a href="django-regroup-tag.html" rel="bookmark"
+       title="Permalink to Django regroup Template tag">Django regroup Template tag</a>
+  </h1>
+
+</header>
+<span class="badge">
+  written on Sun 27 May 2012
+</span>
+<article>
+<div class="entry-content">
+  <p><p>It is a common problem, the case in which we have a huge dictionary, with several fields with repeated data among those dictionary entries. Printing the dictionary, entry by entry, is going to show those repeated field values, and sometimes is not really cool. For a better visualization, we can think that is better to group the entries with the same field value, and we don't know how to do it in the template side.</p>
+<h2>We can do more in the template</h2>
+<p>What is the regroup template tag? It will helps us to loop through a data structure, grouping each entry by a desired field, or maybe we want to group more than once.</p>
+<p>It is a bit tricky to understand this issue so let's put an example. For instance, we have a <code>gps</code> points list where each of it has <code>latitude</code>, <code>longitude</code> and a <code>date</code>. The date is a <code>datetime</code> object (let's think about it like <code>year + month +  day</code>, though it has an hour and the representation of that object is a bit different). Then, we want to organize those points by <code>year</code>, <code>month</code> and <code>day</code>.</p>
+<p>For instance, we will have a link per <code>day</code> to another page, showing with detail all the gps points for that specific day. Those days are grouped by months, and the months by years. Both months and years values will redirect to a page filtering the entries.</p>
+<p>A possible approach to this problem would be the following piece of code (arranged in a table), where <code>points</code> is the variable list provided by the view:</p>
+<div class="codehilite"><pre><span class="cp">{%</span> <span class="k">regroup</span> <span class="nv">points</span> <span class="nv">by</span> <span class="nv">date</span><span class="o">|</span><span class="nf">date</span><span class="s2">:&quot;Y&quot;</span> <span class="k">as</span> <span class="nv">points_by_year</span> <span class="cp">%}</span>
+<span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;entry-content&quot;</span><span class="o">&gt;</span>
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">year_points</span> <span class="k">in</span> <span class="nv">points_by_year</span> <span class="cp">%}</span>
+    <span class="o">&lt;</span><span class="nt">table</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nt">caption</span><span class="o">&gt;</span>
+            <span class="cp">{{</span><span class="nv">year_points.grouper</span><span class="cp">}}</span>
+        <span class="o">&lt;/</span><span class="nt">caption</span><span class="o">&gt;</span>
+        <span class="cp">{%</span> <span class="k">regroup</span> <span class="nv">year_points.list</span> <span class="nv">by</span> <span class="nv">date</span><span class="o">|</span><span class="nf">date</span><span class="s2">:&quot;M&quot;</span> <span class="k">as</span> <span class="nv">points_by_month</span> <span class="cp">%}</span>
+        <span class="cp">{%</span> <span class="k">for</span> <span class="nv">month_points</span> <span class="k">in</span> <span class="nv">points_by_month</span> <span class="cp">%}</span>
+        <span class="o">&lt;</span><span class="nt">tr</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nt">td</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nt">p</span><span class="o">&gt;</span><span class="cp">{{</span><span class="nv">month_points.grouper</span><span class="cp">}}</span><span class="o">&lt;/</span><span class="nt">p</span><span class="o">&gt;</span>
+                <span class="cp">{%</span> <span class="k">regroup</span> <span class="nv">month_points.list</span> <span class="nv">by</span> <span class="nv">date</span><span class="o">|</span><span class="nf">date</span><span class="s2">:&quot;d&quot;</span> <span class="k">as</span> <span class="nv">points_by_day</span> <span class="cp">%}</span>
+                <span class="cp">{%</span> <span class="k">for</span> <span class="nv">day_points</span> <span class="k">in</span> <span class="nv">points_by_day</span> <span class="cp">%}</span>
+                <span class="o">&lt;</span><span class="nt">p</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nt">a</span> <span class="nt">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="nv">nextpage_name</span> <span class="nv">year_points.grouper</span> <span class="nv">month_points.grouper</span> <span class="nv">day_points.grouper</span> <span class="cp">%}</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                        <span class="cp">{{</span><span class="nv">day_points.grouper</span><span class="cp">}}</span>
+                    <span class="o">&lt;/</span><span class="nt">a</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="nt">p</span><span class="o">&gt;</span>
+                <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+            <span class="o">&lt;/</span><span class="nt">td</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="nt">tr</span><span class="o">&gt;</span>
+        <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+    <span class="o">&lt;/</span><span class="nt">table</span><span class="o">&gt;</span>
+    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>The <code>grouper</code> variable will show the string of the item that was grouped by, and if it was by year, then it is the year value, because we have filtered it like this:</p>
+<div class="codehilite"><pre><span class="cp">{%</span> <span class="k">regroup</span> <span class="nv">points</span> <span class="nv">by</span> <span class="nv">date</span><span class="o">|</span><span class="nf">date</span><span class="s2">:&quot;Y&quot;</span> <span class="k">as</span> <span class="nv">points_by_year</span> <span class="cp">%}</span>
+</pre></div>
+
+
+<p>Using the following piece of code is another way of creating the url for the next page. We need to specify the <code>nextpage_name</code> in <code>urls.py</code> and the other two strings are the arguments, so the server will know what page to show.</p>
+<div class="codehilite"><pre><span class="cp">{%</span> <span class="k">url</span> <span class="nv">nextpage_name</span> <span class="nv">year_points.grouper</span> <span class="nv">month_points.grouper</span> <span class="nv">day_points.grouper</span> <span class="cp">%}</span>
+</pre></div>
+
+
+<h2>Let's see how it looks</h2>
+<p>The result should be something like this:</p>
+<p><img alt="Regrouping tag overview" src="http://i.imgur.com/fILp6.png" /></p>
+<p>We don't really need the <code>latitude</code> and <code>longitude</code> here, but we need to know that we have X points for a specific day, to show only the involved days. We can create a set of tables where each table is a single year. At the end, it is very simple and there are other solutions, but this is one of them, using the powerful Django regroup template tag. You can browse more information about these tags in the <a href="https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs">Django Documentation</a>.</p>
+<h2>Other template languages</h2>
+<p>This guide can be applied to other template languages like <code>Jinja2</code>. There is a great explanation in the <a href="http://jinja.pocoo.org/docs/templates/#groupby">Jinja2 Documentation</a>, and is pretty similar to the <code>Django</code> approach.</p></p>
+</div><!-- /.entry-content -->
+</article>
+        <hr>
+        <footer>
+            &copy; Darío Blanco 2012 - <a href="mailto:dario@darioblanco.com">dario@darioblanco.com</a>
+        </footer>
+    </div> <!-- /container -->
+
+    <script src="./theme/js/bootstrap.min.js"></script>
+</body>
+</html>
