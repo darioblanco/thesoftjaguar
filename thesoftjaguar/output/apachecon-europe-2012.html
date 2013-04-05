@@ -18,7 +18,9 @@
             <link href="http://thesoftjaguar.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Full RSS Feed" />
                     <link href="http://thesoftjaguar.com/feeds/programming.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Categories Atom Feed" />
             <link href="http://thesoftjaguar.com/feeds/programming.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Categories RSS Feed" />
-                </head>
+            <link href="http://thesoftjaguar.com/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Tags Atom Feed" />
+            <link href="http://thesoftjaguar.com/feeds/.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Tags RSS Feed" />
+        </head>
 
 <body>
             <div class="navbar navbar-inverse navbar-fixed-top">
@@ -64,10 +66,10 @@
   <p><p>On Wednesday it was ApacheCon day, lot of interesting stuff regarding Apache Lucene, Solr and Elasticsearch. I am not an expert with search engines, and this is a good start for establishing the basic concepts and understanding how some people have solved search problems in their systems.</p>
 <p><img alt="Captain Obvious strikes again" src="https://pbs.twimg.com/media/A7Fb2aPCAAAtQy2.jpg" /></p>
 <h2>Compound Terms Query Parser for Great Shopping Experience</h2>
-<p>This <a href="http://www.apachecon.eu/schedule/presentation/18/?utm_source=twitter&amp;utm_medium=social&amp;utm_content=79e580ba-95ca-43cb-9739-95693cf4770e">talk</a> explained the problem of returning precise search results when there are tricky queries, based on <a href="http://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;ved=0CCcQFjAA&amp;url=http%3A%2F%2Flucene.sourceforge.net%2Fpapers%2Friao97.ps&amp;ei=7O-fUPHRLYSh4gTA4IGQCA&amp;usg=AFQjCNF3SmHeiPe-h1A48ztdx8Qx1R-r7w">Space Optimizations for Total Ranking&lt;</a> paper, and a match spotting using the info explained by the client and facet counts.</p>
+<p>This <a href="http://www.apachecon.eu/schedule/presentation/18/?utm_source=twitter&amp;utm_medium=social&amp;utm_content=79e580ba-95ca-43cb-9739-95693cf4770e">talk</a> explained the problem of returning precise search results when there are tricky queries, based on <a href="http://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;ved=0CCcQFjAA&amp;url=http%3A%2F%2Flucene.sourceforge.net%2Fpapers%2Friao97.ps&amp;ei=7O-fUPHRLYSh4gTA4IGQCA&amp;usg=AFQjCNF3SmHeiPe-h1A48ztdx8Qx1R-r7w">Space Optimizations for Total Ranking</a> paper, and a match spotting using the info explained by the client and facet counts.</p>
 <p>However, there are some queries which are almost impossible to guess, like for example <code>red jeans</code> in a search system which supports colors, you will have red clothes matches, matches with trademarks whose name contains <code>red</code> or <code>jeans</code>. You can minimize the problem, and of course the client only wants exact results, not a huge list of results that he is not going to check, but at the end a nice approach will be less guessing and more freedom to the client in his queries, for instance, specifying if he want to search by color or by trademark.</p>
-<h2>Choosing the right tool for your data analysis task - Apache Mahout in context</h2>
-<p>A nice <a href="http://www.apachecon.eu/schedule/presentation/1/">explanation</a> of the Apache Mahout project and use cases of what we can do with our huge load of data.</p>
+<h2>Apache Mahout in context</h2>
+<p>A nice <a href="http://www.apachecon.eu/schedule/presentation/1/">explanation</a> of the Apache Mahout project as a data analysis tool, and use cases of what we can do with our huge load of data.</p>
 <p>A good example of this is the <code>Frequently Bought Together</code> and <code>What Other Items Do Customers Buy After Viewing This Item?</code> tags in an Amazon product page.</p>
 <h2>Big Search with Big Data Principles</h2>
 <p>Eric presented his <a href="http://www.apachecon.eu/schedule/presentation/13/">problem</a>, which consisted in millions of text documents that should be indexed, and they could have really strange formats.</p>
@@ -90,6 +92,17 @@
 <p>There were also some features supported by both and well, Solr supports multilingual data handling, but is not enough. I really want to try both systems but right now, from the beginning, <code>Elasticsearch</code> is more interesting for me, especially if I want to have a distributed search environment.</p></p>
 </div><!-- /.entry-content -->
 </article>
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thesoftjaguar';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments.</a></noscript>
         <hr>
         <footer>
             &copy; Darío Blanco 2012 - <a href="mailto:dario@darioblanco.com">dario@darioblanco.com</a>
