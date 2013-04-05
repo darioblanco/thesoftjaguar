@@ -1,6 +1,6 @@
 Title: Django regroup template tag
 Date: 2012-05-27 18:53
-Tags: django, template, python, web development
+Tags: django, template, python, web-development
 Category: programming
 Slug: django-regroup-tag
 Summary: Use the template system power for grouping the request output data, in an example web framework like Django.
