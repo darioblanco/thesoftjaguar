@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block navbar %}
+    {% set active_page = "tags" %}
+    {% include "navbar.html" %}
+{% endblock %}
+{% block content %}
+<h1 class="page-title">Entries tagged with "{{tag}}"</h1>
+{% for article in dates %}
+  <p>
+    <span class="badge">{{ article.locale_date }}</span> <i class="icon-briefcase">
+  </i> <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+  </p>
+{% endfor %}
+{% endblock %}
