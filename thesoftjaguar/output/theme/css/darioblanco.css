@@ -1,9 +1,3 @@
-.entry-content {
-  font-size: 18px;
-  margin-top: 30px;
-  margin-bottom: 50px;
-}
-
 .page-title {
     margin-bottom: 30px;
 }
@@ -28,6 +22,47 @@
 
 .tag-4 {
   font-size: 18px;
+}
+
+.entry-overview {
+  margin: 25px 150px 25px 150px;
+}
+
+.entry-overview .date {
+  float: left;
+  width: 120px;
+  color: #CC0033;
+  text-align: right;
+  font-size: 14px;
+}
+
+.entry-overview .detail {
+  margin-left: 140px;
+}
+
+.entry-overview h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.entry-overview h2:after {
+content: " —";
+}
+
+.entry-overview .summary, .entry-overview .date, .entry-overview .summary p {
+  margin: 0;
+  padding: 0;
+}
+
+.entry-overview h2, .entry-overview .summary, .entry-overview .summary p {
+  display: inline;
+  line-height: 0;
+}
+
+.entry-content {
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 
 .entry-content img {

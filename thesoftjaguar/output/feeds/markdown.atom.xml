@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The soft jaguar</title><link href="http://thesoftjaguar.com/" rel="alternate"></link><link href="http://thesoftjaguar.com/feeds/markdown.atom.xml" rel="self"></link><id>http://thesoftjaguar.com/</id><updated>2013-04-06T02:24:00+02:00</updated><entry><title>Migrating to a Pelican static blog</title><link href="http://thesoftjaguar.com/posts/2013/04/06/pelican-static-blog/" rel="alternate"></link><updated>2013-04-06T02:24:00+02:00</updated><author><name>Dario Blanco</name></author><id>tag:thesoftjaguar.com,2013-04-06:posts/2013/04/06/pelican-static-blog/</id><summary type="html">&lt;p&gt;In October 2011, as a Django training exercise, I decided to develop a blog engine from scratch, and I called it &lt;a href="https://github.com/sharkerz/blogjaguar"&gt;blogjaguar&lt;/a&gt;. It was quite interesting and I had a lot of fun in the process, but it wasn't easy and updating it required a lot of time, even if the web framework was making the things easier. That's why I have decided to drop its support, and migrate to a static blog, integrating it with a basic bootstrap webpage that I had for my personal portfolio.&lt;/p&gt;
+&lt;h2&gt;The static blog concept&lt;/h2&gt;
+&lt;p&gt;Instead of having a server side application which is going to parse the client request given by the web server, compile a template based on the given data (this step can be avoided sometimes with a cache system), and return it as an HTML page, we simply skip the first two steps, serving the static HTML page directly, without any programming language as a proxy.&lt;/p&gt;
+&lt;p&gt;And there are many questions... How? We don't really need an admin interface for writing a blog post: we can do it directly creating another HTML page. We don't need our own comment system, we can include an external one like &lt;em&gt;Disqus&lt;/em&gt;. We don't need to register users in our page, they don't want to register in a blog. There are many tasks that we can do without creating the HTML pages dynamically.&lt;/p&gt;
+&lt;p&gt;Fine, now you are thinking that this is a mess, why should you be editting the HTML pages every time you want to create a new blog entry? It seems easier with an administration panel and a WYSWYG editor. And that's why we have static blog generators. &lt;/p&gt;
+&lt;h2&gt;The static blog generator&lt;/h2&gt;
+&lt;p&gt;There are many static blog generators, and they provide a really interesting set of features:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Speed: the parse is made once locally, and then the static pages are uploaded to the web root, ready to be served.&lt;/li&gt;
+&lt;li&gt;Portability: your source blog pages are going to be written in a markup language like Markdown, Textile or Restructured Text, so we don't care about the design, and can be reused in other static blog engines, or even in other systems.&lt;/li&gt;
+&lt;li&gt;Security: it is the strongest point, everything is static, no server side code, no headaches.&lt;/li&gt;
+&lt;li&gt;Configurability: they usually have a configuration file, and you can create your own themes in a really easy way, using different template languages.&lt;/li&gt;
+&lt;li&gt;Power: &lt;em&gt;git&lt;/em&gt; power can be applied to the static blogs, tracking the changes in each blog post and using post-hooks for deploying both in &lt;em&gt;github&lt;/em&gt; or in another web server. Forget about WYSWYG and complex admin interfaces: just use markup language, your favorite text editor and your preferred version control system, and you will be happy.&lt;/li&gt;
+&lt;li&gt;Cheap: you actually don't need expensive hosting, you can upload your static content to &lt;em&gt;github&lt;/em&gt; and it will serve it for you.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Maybe the most famous static blog generator is &lt;a href="https://github.com/mojombo/jekyll"&gt;Jekyll&lt;/a&gt; (Ruby), but I have enough Ruby when I program with Chef, so I wanted a Python alternative. I tried two: &lt;a href="http://nikola.ralsina.com.ar/"&gt;Nikola&lt;/a&gt; and &lt;a href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;My colleague &lt;a href="http://ventolin.org/"&gt;Aengus Walton&lt;/a&gt; has been migrating his Wordpress blog to a static blog philosophy, and for that purpose he recommends Nikola over Pelican, it seems that Nikola handles Wordpress in a better way. I have to say that Nikola is a great alternative, but in my specific case, I decided to use Pelican for this purpose.&lt;/p&gt;
+&lt;h2&gt;Why Pelican&lt;/h2&gt;
+&lt;h2&gt;The process&lt;/h2&gt;
+&lt;h3&gt;Initializiting the project&lt;/h3&gt;
+&lt;h3&gt;Defining Pelican settings&lt;/h3&gt;
+&lt;h3&gt;Creating your own template&lt;/h3&gt;
+&lt;h3&gt;Writing your first article&lt;/h3&gt;
+&lt;h3&gt;Parsing the html&lt;/h3&gt;
+&lt;h3&gt;Deploying to your web server&lt;/h3&gt;</summary><category term="static-blog"></category><category term="markdown"></category><category term="pelican"></category><category term="python"></category><category term="web-development"></category><category term="git"></category><category term="django"></category></entry></feed>

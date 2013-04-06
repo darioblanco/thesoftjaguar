@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>The soft jaguar</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Darío Blanco webpage">
+    <meta name="author" content="Darío Blanco">
+    <link href="../../../../../theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../../theme/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../../../../../theme/css/darioblanco.css" rel="stylesheet">
+    <link href="../../../../../theme/css/pygments.css" rel="stylesheet">
+    <style> body { padding-top: 60px; }</style>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <link href="http://thesoftjaguar.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Full Atom Feed" />
+            <link href="http://thesoftjaguar.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Full RSS Feed" />
+                    <link href="http://thesoftjaguar.com/feeds/programming.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Categories Atom Feed" />
+            <link href="http://thesoftjaguar.com/feeds/programming.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Categories RSS Feed" />
+            <link href="http://thesoftjaguar.com/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Tags Atom Feed" />
+            <link href="http://thesoftjaguar.com/feeds/.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Tags RSS Feed" />
+        </head>
+
+<body>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="../../../../../index.html">The soft jaguar</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+                        <li id="blog-tab" class="navbar-tab active"><a href="../../../../../index.html"><i class="icon-pencil icon-white"></i> Blog</a></li>
+                        <li id="archive-tab" class="navbar-tab "><a href="../../../../../archives.html"><i class="icon-briefcase icon-white"></i> Archive</a></li>
+                        <li id="tags-tab" class="navbar-tab "><a href="../../../../../tags.html"><i class="icon-certificate icon-white"></i> Tags</a></li>
+                        <li id="projects-tab" class="navbar-tab "><a href="../../../../../projects.html"><i class="icon-wrench icon-white"></i> Projects</a></li>
+                    </ul>
+        <ul class="nav pull-right">
+            <li><a href="http://www.linkedin.com/in/darioblancoiturriaga" target="_blank" title="LinkedIn"><img width="16" src="../../../../../theme/img/linkedin.png"></a></li>
+            <li><a href="https://github.com/sharkerz" target="_blank" title="Github"><img width="16" src="../../../../../theme/img/github.png"></a></li>
+            <li><a href="https://www.facebook.com/dario.blancoit" target="_blank" title="Facebook"><img width="16" src="../../../../../theme/img/facebook.png"></a></li>
+            <li><a href="https://twitter.com/darioblanco" target="_blank" title="Twitter"><img width="16" src="../../../../../theme/img/twitter.png"></a></li>
+            <li><a href="mailto:dario@darioblanco.com" target="_blank" title="Email"><img width="16" src="../../../../../theme/img/email.png"></a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>    
+    <div class="container">
+    <header>
+  <h1 class="entry-title">Migrating to a Pelican static blog</h1>
+
+</header>
+<span class="badge">Saturday, 06 April, 2013</span>&nbsp;&nbsp;
+<span class="label"><a href="/tag/static-blog.html">static-blog</a></span> <span class="label"><a href="/tag/markdown.html">markdown</a></span> <span class="label"><a href="/tag/pelican.html">pelican</a></span> <span class="label"><a href="/tag/python.html">python</a></span> <span class="label"><a href="/tag/web-development.html">web-development</a></span> <span class="label"><a href="/tag/git.html">git</a></span> <span class="label"><a href="/tag/django.html">django</a></span> <hr>
+<article>
+<div class="entry-content">
+  <p><p>In October 2011, as a Django training exercise, I decided to develop a blog engine from scratch, and I called it <a href="https://github.com/sharkerz/blogjaguar">blogjaguar</a>. It was quite interesting and I had a lot of fun in the process, but it wasn't easy and updating it required a lot of time, even if the web framework was making the things easier. That's why I have decided to drop its support, and migrate to a static blog, integrating it with a basic bootstrap webpage that I had for my personal portfolio.</p>
+<h2>The static blog concept</h2>
+<p>Instead of having a server side application which is going to parse the client request given by the web server, compile a template based on the given data (this step can be avoided sometimes with a cache system), and return it as an HTML page, we simply skip the first two steps, serving the static HTML page directly, without any programming language as a proxy.</p>
+<p>And there are many questions... How? We don't really need an admin interface for writing a blog post: we can do it directly creating another HTML page. We don't need our own comment system, we can include an external one like <em>Disqus</em>. We don't need to register users in our page, they don't want to register in a blog. There are many tasks that we can do without creating the HTML pages dynamically.</p>
+<p>Fine, now you are thinking that this is a mess, why should you be editting the HTML pages every time you want to create a new blog entry? It seems easier with an administration panel and a WYSWYG editor. And that's why we have static blog generators. </p>
+<h2>The static blog generator</h2>
+<p>There are many static blog generators, and they provide a really interesting set of features:</p>
+<ol>
+<li>Speed: the parse is made once locally, and then the static pages are uploaded to the web root, ready to be served.</li>
+<li>Portability: your source blog pages are going to be written in a markup language like Markdown, Textile or Restructured Text, so we don't care about the design, and can be reused in other static blog engines, or even in other systems.</li>
+<li>Security: it is the strongest point, everything is static, no server side code, no headaches.</li>
+<li>Configurability: they usually have a configuration file, and you can create your own themes in a really easy way, using different template languages.</li>
+<li>Power: <em>git</em> power can be applied to the static blogs, tracking the changes in each blog post and using post-hooks for deploying both in <em>github</em> or in another web server. Forget about WYSWYG and complex admin interfaces: just use markup language, your favorite text editor and your preferred version control system, and you will be happy.</li>
+<li>Cheap: you actually don't need expensive hosting, you can upload your static content to <em>github</em> and it will serve it for you.</li>
+</ol>
+<p>Maybe the most famous static blog generator is <a href="https://github.com/mojombo/jekyll">Jekyll</a> (Ruby), but I have enough Ruby when I program with Chef, so I wanted a Python alternative. I tried two: <a href="http://nikola.ralsina.com.ar/">Nikola</a> and <a href="http://docs.getpelican.com/">Pelican</a>.</p>
+<p>My colleague <a href="http://ventolin.org/">Aengus Walton</a> has been migrating his Wordpress blog to a static blog philosophy, and for that purpose he recommends Nikola over Pelican, it seems that Nikola handles Wordpress in a better way. I have to say that Nikola is a great alternative, but in my specific case, I decided to use Pelican for this purpose.</p>
+<h2>Why Pelican</h2>
+<h2>The process</h2>
+<h3>Initializiting the project</h3>
+<h3>Defining Pelican settings</h3>
+<h3>Creating your own template</h3>
+<h3>Writing your first article</h3>
+<h3>Parsing the html</h3>
+<h3>Deploying to your web server</h3></p>
+</div><!-- /.entry-content -->
+</article>
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thesoftjaguar';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments.</a></noscript>
+        <hr>
+        <footer>
+            &copy; Darío Blanco 2011-2013 - <a href="mailto:dario@darioblanco.com">dario@darioblanco.com</a>
+        </footer>
+    </div> <!-- /container -->
+
+    <script src="../../../../../theme/js/bootstrap.min.js"></script>
+</body>
+</html>

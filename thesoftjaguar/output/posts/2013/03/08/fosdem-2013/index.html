@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>The soft jaguar</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Darío Blanco webpage">
+    <meta name="author" content="Darío Blanco">
+    <link href="../../../../../theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../../theme/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../../../../../theme/css/darioblanco.css" rel="stylesheet">
+    <link href="../../../../../theme/css/pygments.css" rel="stylesheet">
+    <style> body { padding-top: 60px; }</style>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <link href="http://thesoftjaguar.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Full Atom Feed" />
+            <link href="http://thesoftjaguar.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Full RSS Feed" />
+                    <link href="http://thesoftjaguar.com/feeds/programming.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Categories Atom Feed" />
+            <link href="http://thesoftjaguar.com/feeds/programming.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Categories RSS Feed" />
+            <link href="http://thesoftjaguar.com/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="The soft jaguar Tags Atom Feed" />
+            <link href="http://thesoftjaguar.com/feeds/.rss.xml" type="application/rss+xml" rel="alternate" title="The soft jaguar Tags RSS Feed" />
+        </head>
+
+<body>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="../../../../../index.html">The soft jaguar</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+                        <li id="blog-tab" class="navbar-tab active"><a href="../../../../../index.html"><i class="icon-pencil icon-white"></i> Blog</a></li>
+                        <li id="archive-tab" class="navbar-tab "><a href="../../../../../archives.html"><i class="icon-briefcase icon-white"></i> Archive</a></li>
+                        <li id="tags-tab" class="navbar-tab "><a href="../../../../../tags.html"><i class="icon-certificate icon-white"></i> Tags</a></li>
+                        <li id="projects-tab" class="navbar-tab "><a href="../../../../../projects.html"><i class="icon-wrench icon-white"></i> Projects</a></li>
+                    </ul>
+        <ul class="nav pull-right">
+            <li><a href="http://www.linkedin.com/in/darioblancoiturriaga" target="_blank" title="LinkedIn"><img width="16" src="../../../../../theme/img/linkedin.png"></a></li>
+            <li><a href="https://github.com/sharkerz" target="_blank" title="Github"><img width="16" src="../../../../../theme/img/github.png"></a></li>
+            <li><a href="https://www.facebook.com/dario.blancoit" target="_blank" title="Facebook"><img width="16" src="../../../../../theme/img/facebook.png"></a></li>
+            <li><a href="https://twitter.com/darioblanco" target="_blank" title="Twitter"><img width="16" src="../../../../../theme/img/twitter.png"></a></li>
+            <li><a href="mailto:dario@darioblanco.com" target="_blank" title="Email"><img width="16" src="../../../../../theme/img/email.png"></a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>    
+    <div class="container">
+    <header>
+  <h1 class="entry-title">FOSDEM 2013, it is more than beer</h1>
+
+</header>
+<span class="badge">Friday, 08 March, 2013</span>&nbsp;&nbsp;
+<span class="label"><a href="/tag/conferences.html">conferences</a></span> <span class="label"><a href="/tag/python.html">python</a></span> <span class="label"><a href="/tag/ruby.html">ruby</a></span> <span class="label"><a href="/tag/devops.html">devops</a></span> <span class="label"><a href="/tag/virtualization.html">virtualization</a></span> <span class="label"><a href="/tag/tdd.html">tdd</a></span> <span class="label"><a href="/tag/open-source.html">open-source</a></span> <hr>
+<article>
+<div class="entry-content">
+  <p><p>After my long blog hibernation, I wanted to write about <em>FOSDEM 2013</em>, which took place in Brussels on February 2nd and 3rd, and it wasn't only for drinking beer. OK, you got me, the beer is always a motivating factor.</p>
+<p><img alt="We share a dark past" src="http://i.imgur.com/Il4kdf4.jpg" /></p>
+<h2>The Virtualization alternative</h2>
+<p>The first day I was lost, the classrooms were really crowded, and I missed the Configuration Systems Management talk because, for "security purposes", nobody else could enter in the room. There is always a B Plan, so I attended some <em>Xen</em> talks about security using <em>Pygrub</em> and fixed kernels, explaining different attacks that can be performed to our virtual machines, some security practices like PV VMs or the Xen Security Module, and how to virtualizate in CentOS 6. It was nice to hear about all of this, because I am not really advanced in that issue.</p>
+<h2>We should cook: Configuration Systems Management</h2>
+<p>However, Saturday afternoon was the Configuration Systems Management time. At that moment, I was aware of the overcrowding problem, so I arrived to the classroom 30 minutes earlier, and I spent the rest of the day there. From all the talks, I highlight these:</p>
+<h3>Learning to Automate</h3>
+<p>This was a continuation of what I missed that morning, but the people were explaining their knowledge about certain <em>DevOps</em> practices, their experience with <em>Chef</em> and <em>Puppet</em> and how difficult can be sometimes. It was focused in how to debug your <em>Chef</em> cookbooks, introducing other projects like <a href="http://acrmp.github.com/foodcritic/">Foodcritic</a> and <a href="https://github.com/opscode/test-kitchen">test-kitchen</a>. Of course, <a href="http://www.vagrantup.com/">Vagrant</a> was the recommended method for testing your young cookbooks.</p>
+<p><img alt="We need a layered approach to Systems Management" src="http://i.imgur.com/bvFEbyM.jpg" /></p>
+<h3>Using Ruby frameworks to bring sanity to your infrastructure</h3>
+<p><em>Vagrant</em> was over and over again, because it is a really interesting way of creating a development environment, so I wasn't surprised about how insistent they were about its use. But the main point here was that they explained some Ruby frameworks, and more important: their thoughts about each of them. I am not a Ruby expert so it was nice to know that <em>Cucumber</em> was not recommended at all, that <em>Rspec</em> have <em>Chefspec</em> and <em>Rspec-Puppet</em> as reference in this world, and a brief introduction to <em>Minitest</em> never hurts.</p>
+<p>However, this talk was for explaining the <em>Test-Kitchen</em> project: useful for testing cookbooks across different operating systems, and capable of running the tests in Virtualbox or Openstack. Then you realize how complicated the testing of Configuration Management Systems can be, but possible after all.</p>
+<p>Besides all of this, other libraries were meant, like <em>Celulloid</em>, <em>Bats</em> (Bash automated testing system), <em>Chef-Workflow</em>, <em>Berkshelf</em>, <em>Apache Mesos</em>, <em>Faraday</em>, <em>Sinatra</em>, <em>Rspec-dns</em>, <em>Ruby-dns</em> and more... That was all the libraryfest for the day.</p>
+<h3>VeeWee</h3>
+<p>I enjoyed this one because it was a surprise talk (though I didn't love why it became a surprise). It was awesome to know more about the <a href="https://github.com/jedi4ever/veewee">VeeWee</a> project and I definitely recommend it if you want to create almost any virtual machine in a really easy way.</p>
+<p><img alt="One does not simply choose the right kind of beer" src="http://i.imgur.com/Xrv3xC0.jpg" /></p>
+<h2>It's Python time</h2>
+<p>Sunday was the Python day, an overcrowded room as on Saturday but I could manage to pick a nice seat. The first talk was <em>Astonishing Python tricks</em>, a short one but explaining some Python particularities and putting together several Python patterns that the community have been using. Besides this, there are other talks that I want to highlight:</p>
+<h3>Gaffer - Application deployment, monitoring and supervision made simple</h3>
+<p>I was skeptic about <a href="http://gaffer.readthedocs.org/">Gaffer</a>, but I am going to give it a try. At first I thought that it was like a distributed supervisor but it is more than that. I can think in a lot of uses for a company environment, and I am planning an open source project using this library.</p>
+<h3>Plone, the best python-based CMS</h3>
+<p><a href="http://plone.org/">Plone</a> seems a really mature Python CMS. The security was his strongest point (and Python :P) but the weakest one was the deployment (as expected). If you really want to deploy even the most basic application, and you are not familiar to the basic concepts (and some other not as basics), is going to be difficult. They acknowledged those problems, but I have to say that as a CMS solution seems a really interesting one, if you can overcome the drawbacks. In my case, I am a control maniac, so that's why I prefer microframeworks like <em>Flask</em>, other not as micro as <em>Django</em>, and I intend to flee from CMS, though sometimes are really useful for certain situations.</p>
+<h3>TDD from scratch</h3>
+<p>We love <em>Test Driven Development</em>, and if not, you should. Sometimes is hard, really hard, to program the test, because we are lazy. But then, with the experience, you realize that if we would have programmed a test at first, everything would have been easier. This talk addressed all the benefits of that philosophy change, and what tools we can use for easing the process.</p>
+<h3>Vaurien the Chaos TCP Proxy</h3>
+<p>Based on Netflix Chaos Monkey project, <a href="http://vaurien.readthedocs.org/">Vaurien</a> seems an useful way for testing distributed systems (and yeah, distributed systems need a lot of testing). Having a proxy between your code and any other system, in which you can put different protocols and behaviors, seems a really good approach for it. I am currently doing some testing actions with mock, and I think that <em>Vaurien</em> could solve them easily , so giving this project a try wouldn't be a bad idea.</p>
+<h3>Python for Humans</h3>
+<p>My favorite talk, because it was a constructive Python critic, with the open source mind as a solution to all of its problems. I don't have to add much more because the slides are easy to be <a href="https://speakerdeck.com/kennethreitz/python-for-humans">found</a>. By the way, I also loved the <a href="http://python-guide.org">The Hitchhiker’s Guide to Python</a></a> project, I think that anyone who wants to get started with Python should take a look at it.</p>
+<h3>How do event loops work in Python?</h3>
+<p>I love Asynchronous Programming, and I love how stupid I feel when I am dealing with it. In this talk, the <a href="http://pyuv.readthedocs.org">pyuv</a> was introduced, and it seems really promising. It can be integrated with Twisted and Tornado. Besides that, there was an explanation and comparison of the different event loop libraries.</p>
+<p><img alt="Believe it or not, this place was an important piece of FOSDEM 2013" src="http://i.imgur.com/pWQSUZk.jpg" /></p></p>
+</div><!-- /.entry-content -->
+</article>
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thesoftjaguar';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments.</a></noscript>
+        <hr>
+        <footer>
+            &copy; Darío Blanco 2011-2013 - <a href="mailto:dario@darioblanco.com">dario@darioblanco.com</a>
+        </footer>
+    </div> <!-- /container -->
+
+    <script src="../../../../../theme/js/bootstrap.min.js"></script>
+</body>
+</html>
