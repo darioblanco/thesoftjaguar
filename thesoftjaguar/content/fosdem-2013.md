@@ -1,9 +1,9 @@
 Title: FOSDEM 2013, it is more than beer
 Date: 2013-03-08 20:02
-Tags: conference, talk, FOSDEM, Brussels, Python
+Tags: conferences, python, ruby, devops, virtualization, tdd, open-source
 Category: programming
 Slug: fosdem-2013
-Summary: My thoughts about the FOSDEM event.
+Summary: What was going on at the FOSDEM event, and my thoughts about the talks that I have attended.
 
 After my long blog hibernation, I wanted to write about *FOSDEM 2013*, which took place in Brussels on February 2nd and 3rd, and it wasn't only for drinking beer. OK, you got me, the beer is always a motivating factor.
 

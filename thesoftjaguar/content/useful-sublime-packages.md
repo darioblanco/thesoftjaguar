@@ -1,9 +1,9 @@
 Title: Useful Sublime packages
 Date: 2012-09-07 19:33
-Tags: Sublime, editor, programming, plugins, packages
+Tags: sublime
 Category: programming
 Slug: useful-sublime-packages
-Summary: Brief explanation of Sublime Package Control, how to easily install plugins and a recommended list.
+Summary: What is Sublime Package Control, how to easily install Sublime plugins and an introduction to my favourite packages.
 
 I am a [Sublime Text Editor](http://www.sublimetext.com/) fan. Before it, I was using [TextMate](http://macromates.com/) a lot but right now I am working in Linux environments too, so I decide to switch to Sublime because is available in all platforms, is not Java, and the plugin ecosystem is pretty atractive.
 
