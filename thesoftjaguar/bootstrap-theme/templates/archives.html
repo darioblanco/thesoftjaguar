@@ -5,10 +5,21 @@
 {% endblock %}
 {% block content %}
 <h1 class="page-title">Archive</h1>
-{% for article in dates %}
-  <p>
-    <span class="badge">{{ article.locale_date }}</span> <i class="icon-briefcase">
-  </i> <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
-  </p>
+{% for article in articles %}
+{% if loop.first or article.date.strftime('%Y %m') != articles[loop.index0-1].date.strftime('%Y %m') %}
+<h3>{{ article.date.strftime('%B %Y') }}</h3>
+<ul>
+{% endif %}
+    <li>
+        <a rel="bookmark"
+          href="{{ SITEURL }}/{{ article.url }}"
+          title="Permalink to {{ article.title }}»">
+        {{ article.title }}
+        </a>
+     </li>
+{% if loop.last or article.date.strftime('%Y %m') != articles[loop.index0+1].date.strftime('%Y %m') %}
+</ul>
+{% endif %}
 {% endfor %}
+
 {% endblock %}
