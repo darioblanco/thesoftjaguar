@@ -166,15 +166,13 @@ I have my Pelican project, [thesoftjaguar](https://github.com/sharkerz/thesoftja
 I am using a git post-hook to my personal web server, as explained in [Deploying applications with git](|filename|deploying-applications-with-git.md), so I have two remotes in my `thesoftjaguar` repository: github and my personal server. But the `post-receive` hook is going to be a bit different, because I only want to serve the `output` folder:
 
     :::bash
-    TMP_GIT_REPO=/home/dario/git/tmp/thesoftjaguar
-    WEB_ROOT=/home/dario/www
-
-    export GIT_WORK_TREE=$TMP_GIT_REPO
+    export WEB_ROOT=/home/dario/www
+    export GIT_WORK_TREE=/home/dario/git/tmp/thesoftjaguar
 
     git checkout -f
     git reset --hard
     rm -rf "$WEB_ROOT/*"
-    cp -r "$TMP_GIT_REPO/thesoftjaguar/output/" $WEB_ROOT
+    cp -r "$GIT_WORK_TREE/thesoftjaguar/output/" $WEB_ROOT
 
 And now we add the new remote:
 
