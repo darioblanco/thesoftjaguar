@@ -171,6 +171,7 @@ I am using a git post-hook to my personal web server, as explained in [Deploying
 
     GIT_WORK_TREE=$TMP_GIT_REPO git checkout -f
     GIT_WORK_TREE=$TMP_GIT_REPO git reset --hard
+    rm -rf "$WEB_ROOT/*"
     cp -r "$TMP_GIT_REPO/thesoftjaguar/output/*" $WEB_ROOT
 
 And now we add the new remote:
