@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>The soft jaguar</title><link href="http://thesoftjaguar.com/" rel="alternate"></link><link href="http://thesoftjaguar.com/feeds/static-blog.atom.xml" rel="self"></link><id>http://thesoftjaguar.com/</id><updated>2013-04-06T02:24:00+02:00</updated><entry><title>Migrating to a Pelican static blog</title><link href="http://thesoftjaguar.com/posts/2013/04/06/pelican-static-blog/" rel="alternate"></link><updated>2013-04-06T02:24:00+02:00</updated><author><name>Dario Blanco</name></author><id>tag:thesoftjaguar.com,2013-04-06:posts/2013/04/06/pelican-static-blog/</id><summary type="html">&lt;p&gt;In October 2011, as a Django training exercise, I decided to develop a blog engine from scratch, and I called it &lt;a href="https://github.com/sharkerz/blogjaguar"&gt;blogjaguar&lt;/a&gt;. It was quite interesting and I had a lot of fun in the process, but it wasn't easy and updating it required a lot of time, even if the web framework was making the things easier. That's why I have decided to drop its support, and migrate to a static blog, integrating it with a basic bootstrap webpage that I had for my personal portfolio.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="My old blog" src="http://i.imgur.com/uhdrWYn.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;The static blog concept&lt;/h2&gt;
 &lt;p&gt;Instead of having a server side application which is going to parse the client request given by the web server, compile a template based on the given data (this step can be avoided sometimes with a cache system), and return it as an HTML page, we simply skip the first two steps, serving the static HTML page directly, without any programming language as a proxy.&lt;/p&gt;
 &lt;p&gt;And there are many questions... How? We don't really need an admin interface for writing a blog post: we can do it directly creating another HTML page. We don't need our own comment system, we can include an external one like &lt;em&gt;Disqus&lt;/em&gt;. We don't need to register users in our page, they don't want to register in a blog. There are many tasks that we can do without creating the HTML pages dynamically.&lt;/p&gt;
@@ -20,6 +21,7 @@
 &lt;p&gt;With Nikola I had some issues when customizing the blog, so instead of trying to figure out what was going on, I decided to try Pelican.&lt;/p&gt;
 &lt;p&gt;For me Pelican has everything that I need: comments with Disqus, themes using Jinja2, syntax hightlighting, feeds, Twitter and Google Analytics integration, and publication of articles in multiple languages.&lt;/p&gt;
 &lt;p&gt;Actually this last point was one of the reasons why I tried Pelican: I thought that it wasn't supporting multilanguage (Nikola does). I didn't have any problem with Pelican in the process, and everything was astonishingly easy, so I didn't consider any other alternative after such a nice experience.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Pelican? Wat" src="http://i.imgur.com/BgxJhRW.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;The process&lt;/h2&gt;
 &lt;h3&gt;Initializiting the project&lt;/h3&gt;
 &lt;p&gt;I always recommend using &lt;code&gt;virtualenv&lt;/code&gt; and &lt;code&gt;virtualenvwrapper&lt;/code&gt;, and then install the required &lt;code&gt;pip&lt;/code&gt; packages inside the virtual environment. In this case I am using &lt;code&gt;markdown&lt;/code&gt; as a markup format for my blog post, so I am installing it as well:&lt;/p&gt;
@@ -112,6 +114,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;&lt;img alt="The groupby result" src="http://i.imgur.com/Ob65o4J.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Writing your first article&lt;/h3&gt;
 &lt;p&gt;Just create a &lt;code&gt;.md&lt;/code&gt; file in the &lt;code&gt;content&lt;/code&gt; folder, and write the metadata, followed by the actual Markdown formatted text:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;Title: Migrating to a Pelican static blog

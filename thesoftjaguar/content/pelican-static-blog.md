@@ -7,6 +7,8 @@ Summary: How did I migrate my Django blog to a static one, using Pelican.
 
 In October 2011, as a Django training exercise, I decided to develop a blog engine from scratch, and I called it [blogjaguar](https://github.com/sharkerz/blogjaguar). It was quite interesting and I had a lot of fun in the process, but it wasn't easy and updating it required a lot of time, even if the web framework was making the things easier. That's why I have decided to drop its support, and migrate to a static blog, integrating it with a basic bootstrap webpage that I had for my personal portfolio.
 
+![My old blog](http://i.imgur.com/uhdrWYn.png)
+
 
 ## The static blog concept
 
@@ -40,6 +42,8 @@ With Nikola I had some issues when customizing the blog, so instead of trying to
 For me Pelican has everything that I need: comments with Disqus, themes using Jinja2, syntax hightlighting, feeds, Twitter and Google Analytics integration, and publication of articles in multiple languages.
 
 Actually this last point was one of the reasons why I tried Pelican: I thought that it wasn't supporting multilanguage (Nikola does). I didn't have any problem with Pelican in the process, and everything was astonishingly easy, so I didn't consider any other alternative after such a nice experience.
+
+![Pelican? Wat](http://i.imgur.com/BgxJhRW.jpg)
 
 
 ## The process
@@ -142,6 +146,8 @@ However, I found several problems when I wanted to display the blog archives by 
         {% endfor %}
         {% endfor %}
     </ul>
+
+![The groupby result](http://i.imgur.com/Ob65o4J.png)
 
 ### Writing your first article
 
