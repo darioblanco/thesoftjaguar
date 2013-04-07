@@ -3,7 +3,7 @@ Date: 2012-11-11 20:44
 Tags: conferences, elasticsearch, solr, lucene, open-source, big-data, java
 Category: programming
 Slug: apachecon-europe-2012
-Summary: Brief explanation of Sublime Package Control, how to easily install plugins and a recommended list.
+Summary: Impressions about the last Apache conference in Sinsheim.
 
 On Wednesday it was ApacheCon day, lot of interesting stuff regarding Apache Lucene, Solr and Elasticsearch. I am not an expert with search engines, and this is a good start for establishing the basic concepts and understanding how some people have solved search problems in their systems.
 
