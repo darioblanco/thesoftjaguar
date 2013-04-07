@@ -143,10 +143,11 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$TMP_GIT_REPO/thesoftjaguar/output/&amp;q
 
 &lt;p&gt;And now we add the new remote:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add web dario@darioblanco.com:git/thesoftjaguar.git
+&lt;span class="nv"&gt;$ &lt;/span&gt;git push web +master:refs/heads/master
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;For now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
+&lt;p&gt;From now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push web master
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="static-blog"></category><category term="markdown"></category><category term="pelican"></category><category term="python"></category><category term="web-development"></category><category term="git"></category><category term="django"></category></entry><entry><title>Django regroup template tag</title><link href="http://thesoftjaguar.com/posts/2012/05/27/django-regroup-tag/" rel="alternate"></link><updated>2012-05-27T18:53:00+02:00</updated><author><name>Dario Blanco</name></author><id>tag:thesoftjaguar.com,2012-05-27:posts/2012/05/27/django-regroup-tag/</id><summary type="html">&lt;p&gt;It is a common problem, the case in which we have a huge dictionary, with several fields with repeated data among those dictionary entries. Printing the dictionary, entry by entry, is going to show those repeated field values, and sometimes is not really cool. For a better visualization, we can think that is better to group the entries with the same field value, and we don't know how to do it in the template side.&lt;/p&gt;
 &lt;h2&gt;We can do more in the template&lt;/h2&gt;

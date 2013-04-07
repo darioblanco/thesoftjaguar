@@ -143,9 +143,10 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$TMP_GIT_REPO/thesoftjaguar/output/&amp;q
 
 &lt;p&gt;And now we add the new remote:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add web dario@darioblanco.com:git/thesoftjaguar.git
+&lt;span class="nv"&gt;$ &lt;/span&gt;git push web +master:refs/heads/master
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;For now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
+&lt;p&gt;From now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push web master
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="static-blog"></category><category term="markdown"></category><category term="pelican"></category><category term="python"></category><category term="web-development"></category><category term="git"></category><category term="django"></category></entry></feed>

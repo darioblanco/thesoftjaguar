@@ -205,10 +205,11 @@ cp -r <span class="s2">&quot;$TMP_GIT_REPO/thesoftjaguar/output/&quot;</span> <s
 
 <p>And now we add the new remote:</p>
 <div class="codehilite"><pre><span class="nv">$ </span>git remote add web dario@darioblanco.com:git/thesoftjaguar.git
+<span class="nv">$ </span>git push web +master:refs/heads/master
 </pre></div>
 
 
-<p>For now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:</p>
+<p>From now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:</p>
 <div class="codehilite"><pre><span class="nv">$ </span>git push web master
 </pre></div></p>
 </div><!-- /.entry-content -->

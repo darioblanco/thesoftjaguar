@@ -180,8 +180,9 @@ And now we add the new remote:
 
     :::bash
     $ git remote add web dario@darioblanco.com:git/thesoftjaguar.git
+    $ git push web +master:refs/heads/master
 
-For now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:
+From now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:
 
     :::bash
     $ git push web master

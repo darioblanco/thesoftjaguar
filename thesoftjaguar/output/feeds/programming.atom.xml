@@ -143,10 +143,11 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$TMP_GIT_REPO/thesoftjaguar/output/&amp;q
 
 &lt;p&gt;And now we add the new remote:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add web dario@darioblanco.com:git/thesoftjaguar.git
+&lt;span class="nv"&gt;$ &lt;/span&gt;git push web +master:refs/heads/master
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;For now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
+&lt;p&gt;From now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push web master
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="static-blog"></category><category term="markdown"></category><category term="pelican"></category><category term="python"></category><category term="web-development"></category><category term="git"></category><category term="django"></category></entry><entry><title>FOSDEM 2013, it is more than beer</title><link href="http://thesoftjaguar.com/posts/2013/03/08/fosdem-2013/" rel="alternate"></link><updated>2013-03-08T20:02:00+01:00</updated><author><name>Dario Blanco</name></author><id>tag:thesoftjaguar.com,2013-03-08:posts/2013/03/08/fosdem-2013/</id><summary type="html">&lt;p&gt;After my long blog hibernation, I wanted to write about &lt;em&gt;FOSDEM 2013&lt;/em&gt;, which took place in Brussels on February 2nd and 3rd, and it wasn't only for drinking beer. OK, you got me, the beer is always a motivating factor.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="We share a dark past" src="http://i.imgur.com/Il4kdf4.jpg" /&gt;&lt;/p&gt;

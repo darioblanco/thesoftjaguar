@@ -143,10 +143,11 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$TMP_GIT_REPO/thesoftjaguar/output/&amp;q
 
 &lt;p&gt;And now we add the new remote:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add web dario@darioblanco.com:git/thesoftjaguar.git
+&lt;span class="nv"&gt;$ &lt;/span&gt;git push web +master:refs/heads/master
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;For now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
+&lt;p&gt;From now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push web master
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="static-blog"></category><category term="markdown"></category><category term="pelican"></category><category term="python"></category><category term="web-development"></category><category term="git"></category><category term="django"></category></entry><entry><title>Deploying applications with git</title><link href="http://thesoftjaguar.com/posts/2012/02/29/deploying-applications-with-git/" rel="alternate"></link><updated>2012-02-29T16:33:00+01:00</updated><author><name>Dario Blanco</name></author><id>tag:thesoftjaguar.com,2012-02-29:posts/2012/02/29/deploying-applications-with-git/</id><summary type="html">&lt;p&gt;Usually, when we work with an application, especially with web applications, we wonder what is the best way for deploying it, and there are many. It is really important to be comfortable with the way in which we deploy these kind of applications, because the productivity is going to be strongly related to it. Here I explain some &lt;code&gt;git&lt;/code&gt; basics, and how to easily configure it for updating automatically a specific folder (for instance, the web root folder) with the last pushed revision.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Git trunk" src="http://thekevindolan.com/wp-content/uploads/2010/03/git_two1-600x480.jpg" /&gt;&lt;/p&gt;

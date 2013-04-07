@@ -143,10 +143,11 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$TMP_GIT_REPO/thesoftjaguar/output/&amp;q
 
 &lt;p&gt;And now we add the new remote:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add web dario@darioblanco.com:git/thesoftjaguar.git
+&lt;span class="nv"&gt;$ &lt;/span&gt;git push web +master:refs/heads/master
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;For now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
+&lt;p&gt;From now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push web master
 &lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Dario Blanco</dc:creator><pubDate>Sat, 06 Apr 2013 02:24:00 +0200</pubDate><guid>tag:thesoftjaguar.com,2013-04-06:posts/2013/04/06/pelican-static-blog/</guid><category>static-blog</category><category>markdown</category><category>pelican</category><category>python</category><category>web-development</category><category>git</category><category>django</category></item><item><title>Deploying applications with git</title><link>http://thesoftjaguar.com/posts/2012/02/29/deploying-applications-with-git/</link><description>&lt;p&gt;Usually, when we work with an application, especially with web applications, we wonder what is the best way for deploying it, and there are many. It is really important to be comfortable with the way in which we deploy these kind of applications, because the productivity is going to be strongly related to it. Here I explain some &lt;code&gt;git&lt;/code&gt; basics, and how to easily configure it for updating automatically a specific folder (for instance, the web root folder) with the last pushed revision.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Git trunk" src="http://thekevindolan.com/wp-content/uploads/2010/03/git_two1-600x480.jpg" /&gt;&lt;/p&gt;
