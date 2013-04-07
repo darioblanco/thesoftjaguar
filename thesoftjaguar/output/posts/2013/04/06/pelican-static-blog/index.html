@@ -194,10 +194,12 @@ This is the content of my blog post. I should use Markdown here.
 <div class="codehilite"><pre><span class="nv">TMP_GIT_REPO</span><span class="o">=</span>/home/dario/git/tmp/thesoftjaguar
 <span class="nv">WEB_ROOT</span><span class="o">=</span>/home/dario/www
 
-<span class="nv">GIT_WORK_TREE</span><span class="o">=</span><span class="nv">$TMP_GIT_REPO</span> git checkout -f
-<span class="nv">GIT_WORK_TREE</span><span class="o">=</span><span class="nv">$TMP_GIT_REPO</span> git reset --hard
+<span class="nb">export </span><span class="nv">GIT_WORK_TREE</span><span class="o">=</span><span class="nv">$TMP_GIT_REPO</span>
+
+git checkout -f
+git reset --hard
 rm -rf <span class="s2">&quot;$WEB_ROOT/*&quot;</span>
-cp -r <span class="s2">&quot;$TMP_GIT_REPO/thesoftjaguar/output/*&quot;</span> <span class="nv">$WEB_ROOT</span>
+cp -r <span class="s2">&quot;$TMP_GIT_REPO/thesoftjaguar/output/&quot;</span> <span class="nv">$WEB_ROOT</span>
 </pre></div>
 
 

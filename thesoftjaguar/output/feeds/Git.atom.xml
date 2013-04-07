@@ -132,10 +132,12 @@ This is the content of my blog post. I should use Markdown here.
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;TMP_GIT_REPO&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home/dario/git/tmp/thesoftjaguar
 &lt;span class="nv"&gt;WEB_ROOT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home/dario/www
 
-&lt;span class="nv"&gt;GIT_WORK_TREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$TMP_GIT_REPO&lt;/span&gt; git checkout -f
-&lt;span class="nv"&gt;GIT_WORK_TREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$TMP_GIT_REPO&lt;/span&gt; git reset --hard
+&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GIT_WORK_TREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$TMP_GIT_REPO&lt;/span&gt;
+
+git checkout -f
+git reset --hard
 rm -rf &lt;span class="s2"&gt;&amp;quot;$WEB_ROOT/*&amp;quot;&lt;/span&gt;
-cp -r &lt;span class="s2"&gt;&amp;quot;$TMP_GIT_REPO/thesoftjaguar/output/*&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;$WEB_ROOT&lt;/span&gt;
+cp -r &lt;span class="s2"&gt;&amp;quot;$TMP_GIT_REPO/thesoftjaguar/output/&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;$WEB_ROOT&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
