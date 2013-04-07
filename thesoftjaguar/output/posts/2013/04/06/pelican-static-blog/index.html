@@ -191,13 +191,12 @@ This is the content of my blog post. I should use Markdown here.
 <h3>Deploying to your web server</h3>
 <p>I have my Pelican project, <a href="https://github.com/sharkerz/thesoftjaguar">thesoftjaguar</a>, on Github. However, I don't intend to serve the static files there, because I already have a personal web server.</p>
 <p>I am using a git post-hook to my personal web server, as explained in <a href="../../../../../posts/2012/02/29/deploying-applications-with-git/">Deploying applications with git</a>, so I have two remotes in my <code>thesoftjaguar</code> repository: github and my personal server. But the <code>post-receive</code> hook is going to be a bit different, because I only want to serve the <code>output</code> folder:</p>
-<div class="codehilite"><pre><span class="nb">export </span><span class="nv">WEB_ROOT</span><span class="o">=</span>/home/dario/www
-<span class="nb">export </span><span class="nv">GIT_WORK_TREE</span><span class="o">=</span>/home/dario/git/tmp/thesoftjaguar
+<div class="codehilite"><pre><span class="nb">export </span><span class="nv">GIT_WORK_TREE</span><span class="o">=</span>/home/dario/git/tmp/thesoftjaguar
 
 git checkout -f
 git reset --hard
-rm -rf <span class="s2">&quot;$WEB_ROOT/*&quot;</span>
-cp -r <span class="s2">&quot;$GIT_WORK_TREE/thesoftjaguar/output/&quot;</span> <span class="nv">$WEB_ROOT</span>
+rm -rf /home/dario/www/*
+cp -r <span class="s2">&quot;$GIT_WORK_TREE/thesoftjaguar/output/.&quot;</span> /home/dario/www/
 </pre></div>
 
 

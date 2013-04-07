@@ -129,13 +129,12 @@ This is the content of my blog post. I should use Markdown here.
 &lt;h3&gt;Deploying to your web server&lt;/h3&gt;
 &lt;p&gt;I have my Pelican project, &lt;a href="https://github.com/sharkerz/thesoftjaguar"&gt;thesoftjaguar&lt;/a&gt;, on Github. However, I don't intend to serve the static files there, because I already have a personal web server.&lt;/p&gt;
 &lt;p&gt;I am using a git post-hook to my personal web server, as explained in &lt;a href="http://thesoftjaguar.com/posts/2012/02/29/deploying-applications-with-git/"&gt;Deploying applications with git&lt;/a&gt;, so I have two remotes in my &lt;code&gt;thesoftjaguar&lt;/code&gt; repository: github and my personal server. But the &lt;code&gt;post-receive&lt;/code&gt; hook is going to be a bit different, because I only want to serve the &lt;code&gt;output&lt;/code&gt; folder:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;WEB_ROOT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home/dario/www
-&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GIT_WORK_TREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home/dario/git/tmp/thesoftjaguar
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GIT_WORK_TREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home/dario/git/tmp/thesoftjaguar
 
 git checkout -f
 git reset --hard
-rm -rf &lt;span class="s2"&gt;&amp;quot;$WEB_ROOT/*&amp;quot;&lt;/span&gt;
-cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;$WEB_ROOT&lt;/span&gt;
+rm -rf /home/dario/www/*
+cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/.&amp;quot;&lt;/span&gt; /home/dario/www/
 &lt;/pre&gt;&lt;/div&gt;
 
 
