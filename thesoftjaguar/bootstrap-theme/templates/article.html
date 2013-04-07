@@ -4,9 +4,11 @@
   <h1 class="entry-title">{{ article.title }}</h1>
 {% import 'translations.html' as translations with context %}
 {{ translations.translations_for(article) }}
-</header>
-<span class="badge">{{ article.date.strftime('%A, %d %B, %Y') }}</span>&nbsp;&nbsp;
+written on <div class="article-date">{{ article.date.strftime('%A, %d %B, %Y') }}</div>
+<div class="article-tags">
 {% for tag in article.tags %}<span class="label"><a href="/tag/{{tag|lower}}.html">{{ tag }}</a></span> {% endfor %}
+</div>
+</header>
 <hr>
 <article>
 <div class="entry-content">

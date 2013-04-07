@@ -6,9 +6,13 @@
 {% block content %}
 <h1 class="page-title">Entries tagged with "{{tag}}"</h1>
 {% for article in dates %}
-  <p>
-    <span class="badge">{{ article.locale_date }}</span> <i class="icon-briefcase">
-  </i> <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
-  </p>
+    <div class="entry-tag">
+        <div class="date">
+            {{ article.date.strftime('%d %b, %Y') }}
+        </div>
+        <div class="detail">
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+        </div>
+    </div>
 {% endfor %}
 {% endblock %}

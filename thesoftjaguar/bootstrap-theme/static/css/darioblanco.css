@@ -24,11 +24,31 @@
   font-size: 18px;
 }
 
+.article-date {
+  display: inline-block;
+  margin-right: 10px;
+  color: #CC0033;
+  font-size: 14px;
+}
+
+.article-tags {
+  display: inline-block;
+  margin-left: 10px;
+}
+
 .entry-overview {
   margin: 25px 150px 25px 150px;
 }
 
-.entry-overview .date {
+.entry-archive {
+  margin: 15px;
+}
+
+.entry-tag {
+  margin: 25px 10px 25px 10px;
+}
+
+.entry-overview .date, .entry-archive .date, .entry-tag .date {
   float: left;
   width: 120px;
   color: #CC0033;
@@ -36,7 +56,7 @@
   font-size: 14px;
 }
 
-.entry-overview .detail {
+.entry-overview .detail, .entry-archive .detail, .entry-tag .detail {
   margin-left: 140px;
 }
 

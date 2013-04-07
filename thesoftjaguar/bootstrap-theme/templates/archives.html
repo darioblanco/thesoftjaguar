@@ -1,25 +1,32 @@
 {% extends "base.html" %}
+
 {% block navbar %}
     {% set active_page = "archive" %}
     {% include "navbar.html" %}
 {% endblock %}
+
 {% block content %}
+
 <h1 class="page-title">Archive</h1>
-{% for article in articles %}
-{% if loop.first or article.date.strftime('%Y %m') != articles[loop.index0-1].date.strftime('%Y %m') %}
-<h3>{{ article.date.strftime('%B %Y') }}</h3>
 <ul>
-{% endif %}
-    <li>
-        <a rel="bookmark"
-          href="{{ SITEURL }}/{{ article.url }}"
-          title="Permalink to {{ article.title }}»">
-        {{ article.title }}
-        </a>
-     </li>
-{% if loop.last or article.date.strftime('%Y %m') != articles[loop.index0+1].date.strftime('%Y %m') %}
+    {% for year, year_articles in articles|groupby('date.year') %}
+    <li><h2>{{ year }}</h2></li>
+    {% for month, month_articles in year_articles|groupby('date.month') %}
+    <ul>
+        <li><h4>{{ month_articles[0].date.strftime('%B') }}</h4></li>
+            {% for article in month_articles %}
+            <div class="entry-archive">
+                <div class="date">
+                    {{ article.date.strftime('%A %d') }}
+                </div>
+                <div class="detail">
+                    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+                </div>
+            </div>
+            {% endfor %}
+    </ul>
+    {% endfor %}
+    {% endfor %}
 </ul>
-{% endif %}
-{% endfor %}
 
 {% endblock %}
