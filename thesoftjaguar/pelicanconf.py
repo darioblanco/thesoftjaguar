@@ -17,6 +17,7 @@ THEME = 'bootstrap-theme'
 
 TEMPLATE_PAGES = {
     'projects.html': 'projects.html',
+    'presentations.html': 'presentations.html',
 }
 
 # Urls
