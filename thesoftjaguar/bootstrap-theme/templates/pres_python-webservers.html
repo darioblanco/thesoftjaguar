@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ SITEURL }}/theme/reveal/css/theme/default.css" id="theme">
 
         <!-- For syntax highlighting -->
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/reveal/lib/css/beige.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/reveal/css/beige.css">
 
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
         <script>
@@ -25,7 +25,7 @@
         </script>
 
         <!--[if lt IE 9]>
-        <script src="{{ SITEURL }}/theme/lib/js/html5shiv.js"></script>
+        <script src="{{ SITEURL }}/theme/js/html5shiv.js"></script>
         <![endif]-->
     </head>
 
@@ -1246,7 +1246,7 @@ Some related projects in my [sharkerz@github](https://github.com/sharkerz) accou
 
         </div>
 
-        <script src="{{ SITEURL }}/theme/reveal/lib/js/head.min.js"></script>
+        <script src="{{ SITEURL }}/theme/reveal/js/head.min.js"></script>
         <script src="{{ SITEURL }}/theme/reveal/js/reveal.min.js"></script>
 
         <script>
@@ -1264,7 +1264,7 @@ Some related projects in my [sharkerz@github](https://github.com/sharkerz) accou
 
                 // Optional libraries used to extend on reveal.js
                 dependencies: [
-                    { src: '{{ SITEURL }}/theme/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '{{ SITEURL }}/theme/reveal/js/classList.js', condition: function() { return !document.body.classList; } },
                     { src: '{{ SITEURL }}/theme/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: '{{ SITEURL }}/theme/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: '{{ SITEURL }}/theme/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
