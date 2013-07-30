@@ -7,6 +7,8 @@ Summary: An overview of Berlin Buzzwords main topics, thoughts, comments and mor
 
 *Berlin Buzzwords* took place on June 3rd and 4th at [Kulturbrauerei](http://kulturbrauerei.de/en), which is an awesome place. *Buzzwords* is a conference focused in Open Source technologies, mainly related to search engines, *Big Data* and *NoSQL* databases, having three main topics: `search`, `store` and `scale`.
 
+![Maschinenhaus](http://i.imgur.com/cU6iwfG.jpg)
+
 The main technologies from the talks that I attended were [Elasticsearch](http://www.elasticsearch.org/), [Solr](http://lucene.apache.org/solr/) [Cassandra](http://cassandra.apache.org/), [Hadoop](http://hadoop.apache.org/), [Pig](http://pig.apache.org/), [Mahout](http://mahout.apache.org/), [FitNesse](http://fitnesse.org/), [MongoDB](http://www.mongodb.org/), [Logstash](http://logstash.net/) and [Kibana](http://kibana.org/), among others.
 
 Instead of explaining what was going on in each talk that I attended, I have decided to cover the three main areas of the conference.
@@ -25,6 +27,8 @@ The **analyzers** is a very interesting topic, helping us to deal with different
 
 However, we will find the [precision and recall](http://en.wikipedia.org/wiki/Precision_and_recall) problem. The talk explains how Lucene, Elasticsearch and Solr deals with this, and how the synonyms can improve the recall. About the latter, the best practice is to apply the synonyms in the query side instead of in the index: it allows synonym updating without reindexing and is easier to turn the synonym feature off.
 
+![Kesselhaus](http://i.imgur.com/pWprsej.jpg)
+
 When we work with *NoSQL* based solutions, in this case with Elasticsearch, we always have a problem: how to divide the relational data? [Document relations with Elasticsearch](http://berlinbuzzwords.de/sessions/document-relations-elasticsearch) gives two answers to this problem. The first one is about setting the `_parent` field in the desired mapping, for linking the current document (*child*) to another one (*parent*). The advantage is that the parent document doesn't need to exist at indexing time, which improves the performance, and if we want to have the parent documents based on matches with their child ones, we can always set the `has_child` query.
 
 The second workaround is the use of **nested objects**. We can set a JSON document with nested fields, instead of defining a parent, using the `nested` field type (which triggers Lucene's *block indexing*). This document will be flattened and the *block indexing* translate the ES document into multiple Lucene documents. With this approach, the root document and its nested documents remain always in the same block, and when querying, you establish it as a nested query, specify the nested level, the score mode and then the query inside that nested document.
@@ -37,17 +41,23 @@ The search topic is also closely related to Big Data. What's the point of having
 
 There are several ways of achieving this (*JUnit*, *MRUnit*, *iTest* or simply using scripts), but the talk introduces *FitNesse* as a natural language test specification, where the tests are written as stories instead as programming code. The FitNesse server translates the natural language into Java and integrates with REST or Jenkins if needed.
 
+![FitNesse into action](http://i.imgur.com/O1Qfp1o.png)
+
 This has several advantages, like having a wiki page with the tests written in a language that everyone can understand (or integrate PigLatin directly into that wiki page). However, natural language has its limits, like for instance, if you want to check the expected result (like the output of a Pig job alias).
 
 ## Don't drown in a log ocean
 
 Who hasn't had issues when dealing with log information? We want to know what's going on when something is wrong, but sometimes the log is too verbose (Java :P) or simply we have the log files distributed among a lot of servers.
 
+![Big Data is any thing which is crash Excel](http://i.imgur.com/3tfClkO.jpg)
+
 [The State of Open Source Logging](http://berlinbuzzwords.de/sessions/state-open-source-logging) shows some technologies that address this problem, like *fluentd*, *Logstash*, *Graylog2*, *ELSA*, *Flume* or *Scribe*. Therefore, one work around to this problem is to centralize all log files into a Elasticsearch cluster, transforming every log line into a JSON document. The talk is focused on the **Kibana** way, which is a very powerful Logstash and Elasticsearch interface.
 
 ## Machine learning baby
 
 Imagine that we have access to a lot of data, and actually we can (Twitter Public API). Now we want to do something useful with that data, like in [Geospatial Event Detection in the Twitter Stream](http://berlinbuzzwords.de/sessions/geospatial-event-detection-twitter-stream), a nice talk stating the desire of creating real actionable insights from tweet data: fires, police alerts, events, demonstrations, accidents...
+
+![There's a fire! Twitter knows before anyone](http://i.imgur.com/IOV0C27.jpg)
 
 In order to detect those events, they grouped the tweets by location (tweet cluster) storing them in *MongoDB*, and then, check if the tweets from the cluster belong to the same topic (marking the group as good). Where is the machine learning? Well, marking the tweet cluster as good is not a trivial thing: the use of a machine learning tool (like Weka) can solve the problem.
 
@@ -62,9 +72,13 @@ I didn't assist a lot of `Store` talks, and the ones that I did were almost all 
 
 They explain the concept of *token*. A *token* belongs to a data range, so the entire data will be divided in *tokens*. So how is the data going to be distributed using these tokens? There are two ways: without and with virtual nodes. The main difference is that virtual nodes will use more tokens per node, (smaller ones)
 
+![Virtual Nodes in Cassandra](http://www.datastax.com/wp-content/uploads/2012/10/VNodes3.png)
+
 Other concepts were explained, like how to repair the cluster with and without virtual nodes, but at the end, the use of virtual nodes was more interesting: you can pick tokens from pretty much every node in the ring, instead of from some nodes of your entire cluster (this is due to the fact that the tokens are smaller), so if you have a lot of data to transfer because you are rebuilding a node, this can make the difference. There are other advantages, they allow heterogeneous nodes and the load balancing is simpler when adding new nodes.
 
 Another interesting part was the introduction to the **Cassandra Query Language** (CQL3). Is kind of a *denormalized* SQL, strictly real time oriented, with no joins, no sub-queries, no aggregation and a limited ORDER BY. They also announced the replace of the Thrift transport protocol for a binary (native) one, which is asynchronous, gives server notifications for new nodes and schema changes, and is totally optimized for CQL3. Another interesting concept is the request tracing, you can trace queries, for instance, seeing which node receives the query and which nodes has the requires replicas, making debugging easier for tracing anti patterns.
+
+![Request tracing](http://i.imgur.com/6AcXIX8.png)
 
 In [Cassandra by Example](http://berlinbuzzwords.de/sessions/cassandra-example-data-modeling-cql3) they extend these concepts using a Django example application called [Twissandra](https://github.com/twissandra/twissandra).
 
@@ -72,5 +86,7 @@ In [Cassandra by Example](http://berlinbuzzwords.de/sessions/cassandra-example-d
 # Scale
 
 The most relevant talk about `scale`, in my opinion, was [Elasticsearch in Miniature](http://berlinbuzzwords.de/sessions/scaling-other-way-elasticsearch-miniature), a nice way of presenting Elasticsearch's distributed capabilities.
+
+![Master not found... Doh!](http://i.imgur.com/8eW4m23.jpg)
 
 The cool thing is that the Elasticsearch guys installed their system in 5 Raspberry Pi, creating a test ES cluster over WiFi: this allowed them to [show us](http://www.youtube.com/watch?feature=player_embedded&v=AA_gihv5H-Y) things like how the shards and replicas were rebalanced when the number of nodes in the cluster was changing, or what was the cluster state after destroying and creating replicas. The interesting thing is that everything went fine, having into account that this kind of demos usually tend to fail in the final presentation, and the fact that the network wasn't really reliable is a plus.

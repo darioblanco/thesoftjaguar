@@ -5,9 +5,9 @@
     <meta charset="utf-8" />
     <meta name="description" content="Darío Blanco webpage">
     <meta name="author" content="Darío Blanco">
-    <link href="http://thesoftjaguar.com/theme/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://thesoftjaguar.com/theme/css/darioblanco.css" rel="stylesheet">
-    <link href="http://thesoftjaguar.com/theme/css/pygments.css" rel="stylesheet">
+    <link href="../../../../../theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../../theme/css/darioblanco.css" rel="stylesheet">
+    <link href="../../../../../theme/css/pygments.css" rel="stylesheet">
     <style> body { padding-top: 60px; }</style>
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,21 +29,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="http://thesoftjaguar.com/index.html">The soft jaguar</a>
+      <a class="brand" href="../../../../../index.html">The soft jaguar</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
-                        <li id="blog-tab" class="navbar-tab active"><a href="http://thesoftjaguar.com/index.html"><i class="icon-pencil icon-white"></i> Blog</a></li>
-                        <li id="archive-tab" class="navbar-tab "><a href="http://thesoftjaguar.com/archives.html"><i class="icon-briefcase icon-white"></i> Archive</a></li>
-                        <li id="tags-tab" class="navbar-tab "><a href="http://thesoftjaguar.com/tags.html"><i class="icon-certificate icon-white"></i> Tags</a></li>
-                        <li id="projects-tab" class="navbar-tab "><a href="http://thesoftjaguar.com/projects.html"><i class="icon-wrench icon-white"></i> Projects</a></li>
-                        <li id="presentations-tab" class="navbar-tab "><a href="http://thesoftjaguar.com/presentations.html"><i class="icon-eye-open icon-white"></i> Presentations</a></li>
+                        <li id="blog-tab" class="navbar-tab active"><a href="../../../../../index.html"><i class="icon-pencil icon-white"></i> Blog</a></li>
+                        <li id="archive-tab" class="navbar-tab "><a href="../../../../../archives.html"><i class="icon-briefcase icon-white"></i> Archive</a></li>
+                        <li id="tags-tab" class="navbar-tab "><a href="../../../../../tags.html"><i class="icon-certificate icon-white"></i> Tags</a></li>
+                        <li id="projects-tab" class="navbar-tab "><a href="../../../../../projects.html"><i class="icon-wrench icon-white"></i> Projects</a></li>
+                        <li id="presentations-tab" class="navbar-tab "><a href="../../../../../presentations.html"><i class="icon-eye-open icon-white"></i> Presentations</a></li>
                     </ul>
         <ul class="nav pull-right">
-            <li><a href="http://www.linkedin.com/in/darioblancoiturriaga" target="_blank" title="LinkedIn"><img width="16" src="http://thesoftjaguar.com/theme/img/linkedin.png"></a></li>
-            <li><a href="https://github.com/sharkerz" target="_blank" title="Github"><img width="16" src="http://thesoftjaguar.com/theme/img/github.png"></a></li>
-            <li><a href="https://www.facebook.com/dario.blancoit" target="_blank" title="Facebook"><img width="16" src="http://thesoftjaguar.com/theme/img/facebook.png"></a></li>
-            <li><a href="https://twitter.com/darioblanco" target="_blank" title="Twitter"><img width="16" src="http://thesoftjaguar.com/theme/img/twitter.png"></a></li>
-            <li><a href="mailto:dario@darioblanco.com" target="_blank" title="Email"><img width="16" src="http://thesoftjaguar.com/theme/img/email.png"></a></li>
+            <li><a href="http://www.linkedin.com/in/darioblancoiturriaga" target="_blank" title="LinkedIn"><img width="16" src="../../../../../theme/img/linkedin.png"></a></li>
+            <li><a href="https://github.com/sharkerz" target="_blank" title="Github"><img width="16" src="../../../../../theme/img/github.png"></a></li>
+            <li><a href="https://www.facebook.com/dario.blancoit" target="_blank" title="Facebook"><img width="16" src="../../../../../theme/img/facebook.png"></a></li>
+            <li><a href="https://twitter.com/darioblanco" target="_blank" title="Twitter"><img width="16" src="../../../../../theme/img/twitter.png"></a></li>
+            <li><a href="mailto:dario@darioblanco.com" target="_blank" title="Email"><img width="16" src="../../../../../theme/img/email.png"></a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -86,35 +86,35 @@ written on <div class="article-date">Saturday, 06 April, 2013</div>
 <h2>The process</h2>
 <h3>Initializiting the project</h3>
 <p>I always recommend using <code>virtualenv</code> and <code>virtualenvwrapper</code>, and then install the required <code>pip</code> packages inside the virtual environment. In this case I am using <code>markdown</code> as a markup format for my blog post, so I am installing it as well:</p>
-<div class="highlight"><pre><span class="nv">$ </span>mkvirtualenv my-pelican-blog -a ~/my-pelican-blog-project-folder
+<div class="codehilite"><pre><span class="nv">$ </span>mkvirtualenv my-pelican-blog -a ~/my-pelican-blog-project-folder
 <span class="nv">$ </span>pip install -r pelican markdown
 </pre></div>
 
 
 <p>Once you have set up your virtual environment, the cool part begins. Just run the <code>pelican-quickstart</code> command, and answer each question:</p>
-<div class="highlight"><pre><span class="nv">$ </span>pelican-quickstart
+<div class="codehilite"><pre><span class="nv">$ </span>pelican-quickstart
 </pre></div>
 
 
 <p>That's going to create the project layout, putting each blogpost markdown file in the <code>content</code> folder. Running the following command will generate the static HTML files with Pelican's simple theme:</p>
-<div class="highlight"><pre><span class="nv">$ </span>make html
+<div class="codehilite"><pre><span class="nv">$ </span>make html
 </pre></div>
 
 
 <p>And well, of course you want to check how the blog is looking like:</p>
-<div class="highlight"><pre><span class="nv">$ </span>make serve
+<div class="codehilite"><pre><span class="nv">$ </span>make serve
 </pre></div>
 
 
 <h3>Defining Pelican settings</h3>
 <p>Now you will see two new files, <code>pelicanconf.py</code> and <code>publishconf.py</code>. They are settings files, filled with the answers that you gave running <code>pelican-quickstart</code>. In my specific case, I tuned them up a bit, for matching my personal requirements.</p>
 <p>First of all, I wanted to set <em>DISQUS</em> as external comment system:</p>
-<div class="highlight"><pre><span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s">&quot;thesoftjaguar&quot;</span>
+<div class="codehilite"><pre><span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s">&quot;thesoftjaguar&quot;</span>
 </pre></div>
 
 
 <p>I also wanted to arrange the post urls by date, for handling <code>archives</code> later:</p>
-<div class="highlight"><pre><span class="c"># Urls</span>
+<div class="codehilite"><pre><span class="c"># Urls</span>
 <span class="n">ARTICLE_URL</span> <span class="o">=</span> <span class="s">&#39;posts/{date:%Y}/{date:%m}/{date:</span><span class="si">%d</span><span class="s">}/{slug}/&#39;</span>
 <span class="n">ARTICLE_SAVE_AS</span> <span class="o">=</span> <span class="s">&#39;posts/{date:%Y}/{date:%m}/{date:</span><span class="si">%d</span><span class="s">}/{slug}/index.html&#39;</span>
 <span class="n">YEAR_ARCHIVE_SAVE_AS</span> <span class="o">=</span> <span class="s">&#39;posts/{date:%Y}/index.html&#39;</span>
@@ -123,7 +123,7 @@ written on <div class="article-date">Saturday, 06 April, 2013</div>
 
 
 <p>I activated the feeds for all the posts, categories and tags:</p>
-<div class="highlight"><pre><span class="c"># Feeds</span>
+<div class="codehilite"><pre><span class="c"># Feeds</span>
 <span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="s">&#39;feeds/all.atom.xml&#39;</span>
 <span class="n">FEED_ALL_RSS</span> <span class="o">=</span> <span class="s">&#39;feeds/all.rss.xml&#39;</span>
 <span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="s">&#39;feeds/</span><span class="si">%s</span><span class="s">.atom.xml&#39;</span>
@@ -134,14 +134,14 @@ written on <div class="article-date">Saturday, 06 April, 2013</div>
 
 
 <p>I also had some static pages that were not going to be generated by Pelican, so it has to know that we want to parse them as well:</p>
-<div class="highlight"><pre><span class="n">TEMPLATE_PAGES</span> <span class="o">=</span> <span class="p">{</span>
+<div class="codehilite"><pre><span class="n">TEMPLATE_PAGES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&#39;projects.html&#39;</span><span class="p">:</span> <span class="s">&#39;projects.html&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 
 
 <p>Finally, I decided to implement my own theme, using <em>Twitter Bootstrap</em>. Pelican will check in different places for a folder match, and then it will parse the content from that theme folder:</p>
-<div class="highlight"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="s">&#39;bootstrap-theme&#39;</span>
+<div class="codehilite"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="s">&#39;bootstrap-theme&#39;</span>
 </pre></div>
 
 
@@ -151,7 +151,7 @@ written on <div class="article-date">Saturday, 06 April, 2013</div>
 <p>I copied <a href="https://github.com/getpelican/pelican/tree/master/pelican/themes/simple/templates">simple theme</a> template files into my <code>templates</code> folder, and I editted them. In addition, there is a cool feature in Pelican 3: if it doesn't find a required template file, it will inherit it from the <code>simple</code> theme, so you don't need to store uneditted simple theme files in your custom theme.</p>
 <p>Now, you are on your own. You should keep in mind that there are several <a href="http://docs.getpelican.com/en/3.1.1/themes.html#templates-and-variables">template variables</a> that you have to use, but that's it.</p>
 <p>However, I found several problems when I wanted to display the blog archives by year and month, and Pelican's documentation is not really clear about that subject. Using Jinja2 <code>groupby</code> filter was my way of solving the problem:</p>
-<div class="highlight"><pre><span class="x">&lt;h1 class=&quot;page-title&quot;&gt;Archive&lt;/h1&gt;</span>
+<div class="codehilite"><pre><span class="x">&lt;h1 class=&quot;page-title&quot;&gt;Archive&lt;/h1&gt;</span>
 <span class="x">&lt;ul&gt;</span>
 <span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">year</span><span class="o">,</span> <span class="nv">year_articles</span> <span class="k">in</span> <span class="nv">articles</span><span class="o">|</span><span class="nf">groupby</span><span class="o">(</span><span class="s1">&#39;date.year&#39;</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    &lt;li&gt;&lt;h2&gt;</span><span class="cp">{{</span> <span class="nv">year</span> <span class="cp">}}</span><span class="x">&lt;/h2&gt;&lt;/li&gt;</span>
@@ -178,7 +178,7 @@ written on <div class="article-date">Saturday, 06 April, 2013</div>
 <p><img alt="The groupby result" src="http://i.imgur.com/Ob65o4J.png" /></p>
 <h3>Writing your first article</h3>
 <p>Just create a <code>.md</code> file in the <code>content</code> folder, and write the metadata, followed by the actual Markdown formatted text:</p>
-<div class="highlight"><pre>Title: Migrating to a Pelican static blog
+<div class="codehilite"><pre>Title: Migrating to a Pelican static blog
 Date: 2013-04-06 02:24
 Tags: static-blog, markdown, pelican, python, web-development, git, django
 Category: programming
@@ -192,8 +192,8 @@ This is the content of my blog post. I should use Markdown here.
 <p>Save the file, run <code>make html</code>, and that's it.</p>
 <h3>Deploying to your web server</h3>
 <p>I have my Pelican project, <a href="https://github.com/sharkerz/thesoftjaguar">thesoftjaguar</a>, on Github. However, I don't intend to serve the static files there, because I already have a personal web server.</p>
-<p>I am using a git post-hook to my personal web server, as explained in <a href="http://thesoftjaguar.com/posts/2012/02/29/deploying-applications-with-git/">Deploying applications with git</a>, so I have two remotes in my <code>thesoftjaguar</code> repository: github and my personal server. But the <code>post-receive</code> hook is going to be a bit different, because I only want to serve the <code>output</code> folder:</p>
-<div class="highlight"><pre><span class="nb">export </span><span class="nv">GIT_WORK_TREE</span><span class="o">=</span>/home/dario/git/tmp/thesoftjaguar
+<p>I am using a git post-hook to my personal web server, as explained in <a href="../../../../../posts/2012/02/29/deploying-applications-with-git/">Deploying applications with git</a>, so I have two remotes in my <code>thesoftjaguar</code> repository: github and my personal server. But the <code>post-receive</code> hook is going to be a bit different, because I only want to serve the <code>output</code> folder:</p>
+<div class="codehilite"><pre><span class="nb">export </span><span class="nv">GIT_WORK_TREE</span><span class="o">=</span>/home/dario/git/tmp/thesoftjaguar
 
 git checkout -f
 git reset --hard
@@ -203,13 +203,13 @@ cp -r <span class="s2">&quot;$GIT_WORK_TREE/thesoftjaguar/output/.&quot;</span> 
 
 
 <p>And now we add the new remote:</p>
-<div class="highlight"><pre><span class="nv">$ </span>git remote add web dario@darioblanco.com:git/thesoftjaguar.git
+<div class="codehilite"><pre><span class="nv">$ </span>git remote add web dario@darioblanco.com:git/thesoftjaguar.git
 <span class="nv">$ </span>git push web +master:refs/heads/master
 </pre></div>
 
 
 <p>From now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:</p>
-<div class="highlight"><pre><span class="nv">$ </span>git push web master
+<div class="codehilite"><pre><span class="nv">$ </span>git push web master
 </pre></div></p>
 </div><!-- /.entry-content -->
 </article>
@@ -230,7 +230,7 @@ cp -r <span class="s2">&quot;$GIT_WORK_TREE/thesoftjaguar/output/.&quot;</span> 
         </footer>
     </div> <!-- /container -->
 
-    <script src="http://thesoftjaguar.com/theme/js/bootstrap.min.js"></script>
+    <script src="../../../../../theme/js/bootstrap.min.js"></script>
     <script type="text/javascript">
 
       var _gaq = _gaq || [];

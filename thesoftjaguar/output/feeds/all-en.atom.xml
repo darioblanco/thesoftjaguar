@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>The soft jaguar</title><link href="http://thesoftjaguar.com/" rel="alternate"></link><link href="http://thesoftjaguar.com/feeds/all-en.atom.xml" rel="self"></link><id>http://thesoftjaguar.com/</id><updated>2013-07-30T09:51:00+02:00</updated><entry><title>Berlin Buzzwords 2013</title><link href="http://thesoftjaguar.com/posts/2013/07/30/berlin-buzzwords-2013/" rel="alternate"></link><updated>2013-07-30T09:51:00+02:00</updated><author><name>Dario Blanco</name></author><id>tag:thesoftjaguar.com,2013-07-30:posts/2013/07/30/berlin-buzzwords-2013/</id><summary type="html">&lt;p&gt;&lt;em&gt;Berlin Buzzwords&lt;/em&gt; took place on June 3rd and 4th at &lt;a href="http://kulturbrauerei.de/en"&gt;Kulturbrauerei&lt;/a&gt;, which is an awesome place. &lt;em&gt;Buzzwords&lt;/em&gt; is a conference focused in Open Source technologies, mainly related to search engines, &lt;em&gt;Big Data&lt;/em&gt; and &lt;em&gt;NoSQL&lt;/em&gt; databases, having three main topics: &lt;code&gt;search&lt;/code&gt;, &lt;code&gt;store&lt;/code&gt; and &lt;code&gt;scale&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Maschinenhaus" src="http://i.imgur.com/cU6iwfG.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;The main technologies from the talks that I attended were &lt;a href="http://www.elasticsearch.org/"&gt;Elasticsearch&lt;/a&gt;, &lt;a href="http://lucene.apache.org/solr/"&gt;Solr&lt;/a&gt; &lt;a href="http://cassandra.apache.org/"&gt;Cassandra&lt;/a&gt;, &lt;a href="http://hadoop.apache.org/"&gt;Hadoop&lt;/a&gt;, &lt;a href="http://pig.apache.org/"&gt;Pig&lt;/a&gt;, &lt;a href="http://mahout.apache.org/"&gt;Mahout&lt;/a&gt;, &lt;a href="http://fitnesse.org/"&gt;FitNesse&lt;/a&gt;, &lt;a href="http://www.mongodb.org/"&gt;MongoDB&lt;/a&gt;, &lt;a href="http://logstash.net/"&gt;Logstash&lt;/a&gt; and &lt;a href="http://kibana.org/"&gt;Kibana&lt;/a&gt;, among others.&lt;/p&gt;
 &lt;p&gt;Instead of explaining what was going on in each talk that I attended, I have decided to cover the three main areas of the conference.&lt;/p&gt;
 &lt;h1&gt;Search&lt;/h1&gt;
@@ -9,29 +10,36 @@
 &lt;p&gt;The exact matching is done (or should be done) with &lt;strong&gt;filters&lt;/strong&gt;, and the text search is achieved with &lt;strong&gt;queries&lt;/strong&gt;, so the filters are faster than the queries and cacheable, but the queries provide the full text search. Finally, the talk addresses some different ways of implementing &lt;strong&gt;autocomplete&lt;/strong&gt;: the &lt;em&gt;N-grams&lt;/em&gt; method, good for partial word matching, and the &lt;em&gt;Edge N-grams&lt;/em&gt; method, perfect for autocomplete (just activating the type &lt;code&gt;edge_ngram&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;The &lt;strong&gt;analyzers&lt;/strong&gt; is a very interesting topic, helping us to deal with different languages at query time. &lt;a href="http://berlinbuzzwords.de/sessions/language-support-and-linguistics-lucenesolrelasticsearch-and-open-source-and-commercial-eco"&gt;Language Support and Linguistics in Lucene/Solr/Elasticsearch and the open source ecosystem&lt;/a&gt; explains again the tokenization and normalization of the given text query, where the tokens are mapped to the document ids that contain them.&lt;/p&gt;
 &lt;p&gt;However, we will find the &lt;a href="http://en.wikipedia.org/wiki/Precision_and_recall"&gt;precision and recall&lt;/a&gt; problem. The talk explains how Lucene, Elasticsearch and Solr deals with this, and how the synonyms can improve the recall. About the latter, the best practice is to apply the synonyms in the query side instead of in the index: it allows synonym updating without reindexing and is easier to turn the synonym feature off.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Kesselhaus" src="http://i.imgur.com/pWprsej.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;When we work with &lt;em&gt;NoSQL&lt;/em&gt; based solutions, in this case with Elasticsearch, we always have a problem: how to divide the relational data? &lt;a href="http://berlinbuzzwords.de/sessions/document-relations-elasticsearch"&gt;Document relations with Elasticsearch&lt;/a&gt; gives two answers to this problem. The first one is about setting the &lt;code&gt;_parent&lt;/code&gt; field in the desired mapping, for linking the current document (&lt;em&gt;child&lt;/em&gt;) to another one (&lt;em&gt;parent&lt;/em&gt;). The advantage is that the parent document doesn't need to exist at indexing time, which improves the performance, and if we want to have the parent documents based on matches with their child ones, we can always set the &lt;code&gt;has_child&lt;/code&gt; query.&lt;/p&gt;
 &lt;p&gt;The second workaround is the use of &lt;strong&gt;nested objects&lt;/strong&gt;. We can set a JSON document with nested fields, instead of defining a parent, using the &lt;code&gt;nested&lt;/code&gt; field type (which triggers Lucene's &lt;em&gt;block indexing&lt;/em&gt;). This document will be flattened and the &lt;em&gt;block indexing&lt;/em&gt; translate the ES document into multiple Lucene documents. With this approach, the root document and its nested documents remain always in the same block, and when querying, you establish it as a nested query, specify the nested level, the score mode and then the query inside that nested document.&lt;/p&gt;
 &lt;h2&gt;Test driven development in Big Data&lt;/h2&gt;
 &lt;p&gt;The search topic is also closely related to Big Data. What's the point of having tons and tons of data if we can't find anything useful there? Big Data solutions usually are complex and not easy to test.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://berlinbuzzwords.de/sessions/bug-bites-elephant-test-driven-quality-assurance-big-data-application-development"&gt;Bug bites Elephant?&lt;/a&gt; presents a way of assuring quality data following the Test-driven development process, specifically when using &lt;em&gt;Hadoop&lt;/em&gt;, &lt;em&gt;Pig&lt;/em&gt; and/or &lt;em&gt;Hive&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;There are several ways of achieving this (&lt;em&gt;JUnit&lt;/em&gt;, &lt;em&gt;MRUnit&lt;/em&gt;, &lt;em&gt;iTest&lt;/em&gt; or simply using scripts), but the talk introduces &lt;em&gt;FitNesse&lt;/em&gt; as a natural language test specification, where the tests are written as stories instead as programming code. The FitNesse server translates the natural language into Java and integrates with REST or Jenkins if needed.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="FitNesse into action" src="http://i.imgur.com/O1Qfp1o.png" /&gt;&lt;/p&gt;
 &lt;p&gt;This has several advantages, like having a wiki page with the tests written in a language that everyone can understand (or integrate PigLatin directly into that wiki page). However, natural language has its limits, like for instance, if you want to check the expected result (like the output of a Pig job alias).&lt;/p&gt;
 &lt;h2&gt;Don't drown in a log ocean&lt;/h2&gt;
 &lt;p&gt;Who hasn't had issues when dealing with log information? We want to know what's going on when something is wrong, but sometimes the log is too verbose (Java :P) or simply we have the log files distributed among a lot of servers.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Big Data is any thing which is crash Excel" src="http://i.imgur.com/3tfClkO.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://berlinbuzzwords.de/sessions/state-open-source-logging"&gt;The State of Open Source Logging&lt;/a&gt; shows some technologies that address this problem, like &lt;em&gt;fluentd&lt;/em&gt;, &lt;em&gt;Logstash&lt;/em&gt;, &lt;em&gt;Graylog2&lt;/em&gt;, &lt;em&gt;ELSA&lt;/em&gt;, &lt;em&gt;Flume&lt;/em&gt; or &lt;em&gt;Scribe&lt;/em&gt;. Therefore, one work around to this problem is to centralize all log files into a Elasticsearch cluster, transforming every log line into a JSON document. The talk is focused on the &lt;strong&gt;Kibana&lt;/strong&gt; way, which is a very powerful Logstash and Elasticsearch interface.&lt;/p&gt;
 &lt;h2&gt;Machine learning baby&lt;/h2&gt;
 &lt;p&gt;Imagine that we have access to a lot of data, and actually we can (Twitter Public API). Now we want to do something useful with that data, like in &lt;a href="http://berlinbuzzwords.de/sessions/geospatial-event-detection-twitter-stream"&gt;Geospatial Event Detection in the Twitter Stream&lt;/a&gt;, a nice talk stating the desire of creating real actionable insights from tweet data: fires, police alerts, events, demonstrations, accidents...&lt;/p&gt;
+&lt;p&gt;&lt;img alt="There's a fire! Twitter knows before anyone" src="http://i.imgur.com/IOV0C27.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;In order to detect those events, they grouped the tweets by location (tweet cluster) storing them in &lt;em&gt;MongoDB&lt;/em&gt;, and then, check if the tweets from the cluster belong to the same topic (marking the group as good). Where is the machine learning? Well, marking the tweet cluster as good is not a trivial thing: the use of a machine learning tool (like Weka) can solve the problem.&lt;/p&gt;
 &lt;p&gt;The machine learning tool will then make a choice (is the cluster good or bad?) based on a series of user defined rules. In this specific case, it was checking if the tweets had a common theme (n-gram overlap), sentiment (was it positive, negative? Which was the overall sentiment? What would be the sentiment strenght?), subjectivity, number of hashtags, retweet ratio, event categories, embedded links, foursquare tweets (or other kind of predefined tweets), total number of tweets in the cluster, unique locations, bad locations (airports, train stations...), among other parameters. This highlights the relevance of having an important number of quality rules, besides the tool used for performing machine learning.&lt;/p&gt;
 &lt;h1&gt;Store&lt;/h1&gt;
 &lt;h2&gt;Cassandra in da house&lt;/h2&gt;
 &lt;p&gt;I didn't assist a lot of &lt;code&gt;Store&lt;/code&gt; talks, and the ones that I did were almost all about &lt;em&gt;Cassandra&lt;/em&gt;, topic in which I am not too familiar with. &lt;a href="http://berlinbuzzwords.de/sessions/cassandras-evolutions"&gt;On Cassandra's Evolution&lt;/a&gt; gave a brief explanation about Casandra's ring of nodes.&lt;/p&gt;
 &lt;p&gt;They explain the concept of &lt;em&gt;token&lt;/em&gt;. A &lt;em&gt;token&lt;/em&gt; belongs to a data range, so the entire data will be divided in &lt;em&gt;tokens&lt;/em&gt;. So how is the data going to be distributed using these tokens? There are two ways: without and with virtual nodes. The main difference is that virtual nodes will use more tokens per node, (smaller ones)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Virtual Nodes in Cassandra" src="http://www.datastax.com/wp-content/uploads/2012/10/VNodes3.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Other concepts were explained, like how to repair the cluster with and without virtual nodes, but at the end, the use of virtual nodes was more interesting: you can pick tokens from pretty much every node in the ring, instead of from some nodes of your entire cluster (this is due to the fact that the tokens are smaller), so if you have a lot of data to transfer because you are rebuilding a node, this can make the difference. There are other advantages, they allow heterogeneous nodes and the load balancing is simpler when adding new nodes.&lt;/p&gt;
 &lt;p&gt;Another interesting part was the introduction to the &lt;strong&gt;Cassandra Query Language&lt;/strong&gt; (CQL3). Is kind of a &lt;em&gt;denormalized&lt;/em&gt; SQL, strictly real time oriented, with no joins, no sub-queries, no aggregation and a limited ORDER BY. They also announced the replace of the Thrift transport protocol for a binary (native) one, which is asynchronous, gives server notifications for new nodes and schema changes, and is totally optimized for CQL3. Another interesting concept is the request tracing, you can trace queries, for instance, seeing which node receives the query and which nodes has the requires replicas, making debugging easier for tracing anti patterns.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Request tracing" src="http://i.imgur.com/6AcXIX8.png" /&gt;&lt;/p&gt;
 &lt;p&gt;In &lt;a href="http://berlinbuzzwords.de/sessions/cassandra-example-data-modeling-cql3"&gt;Cassandra by Example&lt;/a&gt; they extend these concepts using a Django example application called &lt;a href="https://github.com/twissandra/twissandra"&gt;Twissandra&lt;/a&gt;.&lt;/p&gt;
 &lt;h1&gt;Scale&lt;/h1&gt;
 &lt;p&gt;The most relevant talk about &lt;code&gt;scale&lt;/code&gt;, in my opinion, was &lt;a href="http://berlinbuzzwords.de/sessions/scaling-other-way-elasticsearch-miniature"&gt;Elasticsearch in Miniature&lt;/a&gt;, a nice way of presenting Elasticsearch's distributed capabilities.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Master not found... Doh!" src="http://i.imgur.com/8eW4m23.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;The cool thing is that the Elasticsearch guys installed their system in 5 Raspberry Pi, creating a test ES cluster over WiFi: this allowed them to &lt;a href="http://www.youtube.com/watch?feature=player_embedded&amp;amp;v=AA_gihv5H-Y"&gt;show us&lt;/a&gt; things like how the shards and replicas were rebalanced when the number of nodes in the cluster was changing, or what was the cluster state after destroying and creating replicas. The interesting thing is that everything went fine, having into account that this kind of demos usually tend to fail in the final presentation, and the fact that the network wasn't really reliable is a plus.&lt;/p&gt;</summary><category term="conferences"></category><category term="elasticsearch"></category><category term="solr"></category><category term="lucene"></category><category term="open-source"></category><category term="big-data"></category><category term="java"></category><category term="cassandra"></category><category term="hadoop"></category><category term="pig"></category><category term="search"></category><category term="store"></category><category term="scale"></category></entry><entry><title>Migrating to a Pelican static blog</title><link href="http://thesoftjaguar.com/posts/2013/04/06/pelican-static-blog/" rel="alternate"></link><updated>2013-04-06T02:24:00+02:00</updated><author><name>Dario Blanco</name></author><id>tag:thesoftjaguar.com,2013-04-06:posts/2013/04/06/pelican-static-blog/</id><summary type="html">&lt;p&gt;In October 2011, as a Django training exercise, I decided to develop a blog engine from scratch, and I called it &lt;a href="https://github.com/sharkerz/blogjaguar"&gt;blogjaguar&lt;/a&gt;. It was quite interesting and I had a lot of fun in the process, but it wasn't easy and updating it required a lot of time, even if the web framework was making the things easier. That's why I have decided to drop its support, and migrate to a static blog, integrating it with a basic bootstrap webpage that I had for my personal portfolio.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="My old blog" src="http://i.imgur.com/uhdrWYn.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;The static blog concept&lt;/h2&gt;
@@ -58,35 +66,35 @@
 &lt;h2&gt;The process&lt;/h2&gt;
 &lt;h3&gt;Initializiting the project&lt;/h3&gt;
 &lt;p&gt;I always recommend using &lt;code&gt;virtualenv&lt;/code&gt; and &lt;code&gt;virtualenvwrapper&lt;/code&gt;, and then install the required &lt;code&gt;pip&lt;/code&gt; packages inside the virtual environment. In this case I am using &lt;code&gt;markdown&lt;/code&gt; as a markup format for my blog post, so I am installing it as well:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;mkvirtualenv my-pelican-blog -a ~/my-pelican-blog-project-folder
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;mkvirtualenv my-pelican-blog -a ~/my-pelican-blog-project-folder
 &lt;span class="nv"&gt;$ &lt;/span&gt;pip install -r pelican markdown
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Once you have set up your virtual environment, the cool part begins. Just run the &lt;code&gt;pelican-quickstart&lt;/code&gt; command, and answer each question:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pelican-quickstart
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pelican-quickstart
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;That's going to create the project layout, putting each blogpost markdown file in the &lt;code&gt;content&lt;/code&gt; folder. Running the following command will generate the static HTML files with Pelican's simple theme:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;make html
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;make html
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And well, of course you want to check how the blog is looking like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;make serve
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;make serve
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;Defining Pelican settings&lt;/h3&gt;
 &lt;p&gt;Now you will see two new files, &lt;code&gt;pelicanconf.py&lt;/code&gt; and &lt;code&gt;publishconf.py&lt;/code&gt;. They are settings files, filled with the answers that you gave running &lt;code&gt;pelican-quickstart&lt;/code&gt;. In my specific case, I tuned them up a bit, for matching my personal requirements.&lt;/p&gt;
 &lt;p&gt;First of all, I wanted to set &lt;em&gt;DISQUS&lt;/em&gt; as external comment system:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;thesoftjaguar&amp;quot;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;thesoftjaguar&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;I also wanted to arrange the post urls by date, for handling &lt;code&gt;archives&lt;/code&gt; later:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Urls&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Urls&lt;/span&gt;
 &lt;span class="n"&gt;ARTICLE_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;posts/{date:%Y}/{date:%m}/{date:&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt;}/{slug}/&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;ARTICLE_SAVE_AS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;posts/{date:%Y}/{date:%m}/{date:&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt;}/{slug}/index.html&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;YEAR_ARCHIVE_SAVE_AS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;posts/{date:%Y}/index.html&amp;#39;&lt;/span&gt;
@@ -95,7 +103,7 @@
 
 
 &lt;p&gt;I activated the feeds for all the posts, categories and tags:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Feeds&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Feeds&lt;/span&gt;
 &lt;span class="n"&gt;FEED_ALL_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;feeds/all.atom.xml&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;FEED_ALL_RSS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;feeds/all.rss.xml&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;CATEGORY_FEED_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;feeds/&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;.atom.xml&amp;#39;&lt;/span&gt;
@@ -106,14 +114,14 @@
 
 
 &lt;p&gt;I also had some static pages that were not going to be generated by Pelican, so it has to know that we want to parse them as well:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;TEMPLATE_PAGES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;TEMPLATE_PAGES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="s"&gt;&amp;#39;projects.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;projects.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Finally, I decided to implement my own theme, using &lt;em&gt;Twitter Bootstrap&lt;/em&gt;. Pelican will check in different places for a folder match, and then it will parse the content from that theme folder:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;bootstrap-theme&amp;#39;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;bootstrap-theme&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -123,7 +131,7 @@
 &lt;p&gt;I copied &lt;a href="https://github.com/getpelican/pelican/tree/master/pelican/themes/simple/templates"&gt;simple theme&lt;/a&gt; template files into my &lt;code&gt;templates&lt;/code&gt; folder, and I editted them. In addition, there is a cool feature in Pelican 3: if it doesn't find a required template file, it will inherit it from the &lt;code&gt;simple&lt;/code&gt; theme, so you don't need to store uneditted simple theme files in your custom theme.&lt;/p&gt;
 &lt;p&gt;Now, you are on your own. You should keep in mind that there are several &lt;a href="http://docs.getpelican.com/en/3.1.1/themes.html#templates-and-variables"&gt;template variables&lt;/a&gt; that you have to use, but that's it.&lt;/p&gt;
 &lt;p&gt;However, I found several problems when I wanted to display the blog archives by year and month, and Pelican's documentation is not really clear about that subject. Using Jinja2 &lt;code&gt;groupby&lt;/code&gt; filter was my way of solving the problem:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;&amp;lt;h1 class=&amp;quot;page-title&amp;quot;&amp;gt;Archive&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="x"&gt;&amp;lt;h1 class=&amp;quot;page-title&amp;quot;&amp;gt;Archive&amp;lt;/h1&amp;gt;&lt;/span&gt;
 &lt;span class="x"&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
 &lt;span class="x"&gt;    &lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;year&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nv"&gt;year_articles&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;articles&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;groupby&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;date.year&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;span class="x"&gt;    &amp;lt;li&amp;gt;&amp;lt;h2&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;year&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&amp;lt;/h2&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
@@ -150,7 +158,7 @@
 &lt;p&gt;&lt;img alt="The groupby result" src="http://i.imgur.com/Ob65o4J.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Writing your first article&lt;/h3&gt;
 &lt;p&gt;Just create a &lt;code&gt;.md&lt;/code&gt; file in the &lt;code&gt;content&lt;/code&gt; folder, and write the metadata, followed by the actual Markdown formatted text:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Title: Migrating to a Pelican static blog
+&lt;div class="codehilite"&gt;&lt;pre&gt;Title: Migrating to a Pelican static blog
 Date: 2013-04-06 02:24
 Tags: static-blog, markdown, pelican, python, web-development, git, django
 Category: programming
@@ -165,7 +173,7 @@ This is the content of my blog post. I should use Markdown here.
 &lt;h3&gt;Deploying to your web server&lt;/h3&gt;
 &lt;p&gt;I have my Pelican project, &lt;a href="https://github.com/sharkerz/thesoftjaguar"&gt;thesoftjaguar&lt;/a&gt;, on Github. However, I don't intend to serve the static files there, because I already have a personal web server.&lt;/p&gt;
 &lt;p&gt;I am using a git post-hook to my personal web server, as explained in &lt;a href="http://thesoftjaguar.com/posts/2012/02/29/deploying-applications-with-git/"&gt;Deploying applications with git&lt;/a&gt;, so I have two remotes in my &lt;code&gt;thesoftjaguar&lt;/code&gt; repository: github and my personal server. But the &lt;code&gt;post-receive&lt;/code&gt; hook is going to be a bit different, because I only want to serve the &lt;code&gt;output&lt;/code&gt; folder:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GIT_WORK_TREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home/dario/git/tmp/thesoftjaguar
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GIT_WORK_TREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home/dario/git/tmp/thesoftjaguar
 
 git checkout -f
 git reset --hard
@@ -175,13 +183,13 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/.&amp
 
 
 &lt;p&gt;And now we add the new remote:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add web dario@darioblanco.com:git/thesoftjaguar.git
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add web dario@darioblanco.com:git/thesoftjaguar.git
 &lt;span class="nv"&gt;$ &lt;/span&gt;git push web +master:refs/heads/master
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;From now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push web master
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push web master
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="static-blog"></category><category term="markdown"></category><category term="pelican"></category><category term="python"></category><category term="web-development"></category><category term="git"></category><category term="django"></category></entry><entry><title>FOSDEM 2013, it is more than beer</title><link href="http://thesoftjaguar.com/posts/2013/03/08/fosdem-2013/" rel="alternate"></link><updated>2013-03-08T20:02:00+01:00</updated><author><name>Dario Blanco</name></author><id>tag:thesoftjaguar.com,2013-03-08:posts/2013/03/08/fosdem-2013/</id><summary type="html">&lt;p&gt;After my long blog hibernation, I wanted to write about &lt;em&gt;FOSDEM 2013&lt;/em&gt;, which took place in Brussels on February 2nd and 3rd, and it wasn't only for drinking beer. OK, you got me, the beer is always a motivating factor.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="We share a dark past" src="http://i.imgur.com/Il4kdf4.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;The Virtualization alternative&lt;/h2&gt;
@@ -244,7 +252,7 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/.&amp
 &lt;p&gt;&lt;img alt="Sublime Package Control" src="http://wbond.net/sublime_packages/img/package_control/command_palette.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;Installing the Sublime Package Control&lt;/h2&gt;
 &lt;p&gt;In Sublime, open the console (&lt;code&gt;Ctrl+`` or&lt;/code&gt;View&amp;gt;Show Console`) and paste the following snippet:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib2&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib2&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="n"&gt;pf&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Package Control.sublime-package&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="n"&gt;ipp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sublime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;installed_packages_path&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;makedirs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ipp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ipp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -314,7 +322,7 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/.&amp
 &lt;p&gt;Highlights all copies of a word that's currently selected, or, optionally, highlights all copies of a word which currently has the insertion cursor upon it.&lt;/p&gt;
 &lt;h2&gt;Themes&lt;/h2&gt;
 &lt;p&gt;When installing a new package through the Package Control, there are some special ones named &lt;code&gt;Themes&lt;/code&gt;. They will change the look and feel of Sublime. Just search them in &lt;code&gt;Package Control:Install Packages&lt;/code&gt; with the string &lt;code&gt;Theme - ThemeName&lt;/code&gt;. For activating the theme just open the User Settings Preferences file (Sublime Text 2 -&amp;gt; Preferences -&amp;gt; Settings - User`) and add, append or update the theme entry like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;theme&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Soda Light.sublime-theme&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;theme&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Soda Light.sublime-theme&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -341,7 +349,7 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/.&amp
 &lt;p&gt;It is a bit tricky to understand this issue so let's put an example. For instance, we have a &lt;code&gt;gps&lt;/code&gt; points list where each of it has &lt;code&gt;latitude&lt;/code&gt;, &lt;code&gt;longitude&lt;/code&gt; and a &lt;code&gt;date&lt;/code&gt;. The date is a &lt;code&gt;datetime&lt;/code&gt; object (let's think about it like &lt;code&gt;year + month +  day&lt;/code&gt;, though it has an hour and the representation of that object is a bit different). Then, we want to organize those points by &lt;code&gt;year&lt;/code&gt;, &lt;code&gt;month&lt;/code&gt; and &lt;code&gt;day&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;For instance, we will have a link per &lt;code&gt;day&lt;/code&gt; to another page, showing with detail all the gps points for that specific day. Those days are grouped by months, and the months by years. Both months and years values will redirect to a page filtering the entries.&lt;/p&gt;
 &lt;p&gt;A possible approach to this problem would be the following piece of code (arranged in a table), where &lt;code&gt;points&lt;/code&gt; is the variable list provided by the view:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;regroup&lt;/span&gt; &lt;span class="nv"&gt;points&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;date&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;date&lt;/span&gt;&lt;span class="s2"&gt;:&amp;quot;Y&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;points_by_year&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;regroup&lt;/span&gt; &lt;span class="nv"&gt;points&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;date&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;date&lt;/span&gt;&lt;span class="s2"&gt;:&amp;quot;Y&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;points_by_year&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="nt"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;entry-content&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
     &lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;year_points&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;points_by_year&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
     &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;table&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
@@ -371,12 +379,12 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/.&amp
 
 
 &lt;p&gt;The &lt;code&gt;grouper&lt;/code&gt; variable will show the string of the item that was grouped by, and if it was by year, then it is the year value, because we have filtered it like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;regroup&lt;/span&gt; &lt;span class="nv"&gt;points&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;date&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;date&lt;/span&gt;&lt;span class="s2"&gt;:&amp;quot;Y&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;points_by_year&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;regroup&lt;/span&gt; &lt;span class="nv"&gt;points&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;date&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;date&lt;/span&gt;&lt;span class="s2"&gt;:&amp;quot;Y&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;points_by_year&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Using the following piece of code is another way of creating the url for the next page. We need to specify the &lt;code&gt;nextpage_name&lt;/code&gt; in &lt;code&gt;urls.py&lt;/code&gt; and the other two strings are the arguments, so the server will know what page to show.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;url&lt;/span&gt; &lt;span class="nv"&gt;nextpage_name&lt;/span&gt; &lt;span class="nv"&gt;year_points.grouper&lt;/span&gt; &lt;span class="nv"&gt;month_points.grouper&lt;/span&gt; &lt;span class="nv"&gt;day_points.grouper&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;url&lt;/span&gt; &lt;span class="nv"&gt;nextpage_name&lt;/span&gt; &lt;span class="nv"&gt;year_points.grouper&lt;/span&gt; &lt;span class="nv"&gt;month_points.grouper&lt;/span&gt; &lt;span class="nv"&gt;day_points.grouper&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
