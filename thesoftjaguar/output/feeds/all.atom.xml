@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The soft jaguar</title><link href="http://thesoftjaguar.com/" rel="alternate"></link><link href="http://thesoftjaguar.com/feeds/all.atom.xml" rel="self"></link><id>http://thesoftjaguar.com/</id><updated>2013-07-30T09:51:00+02:00</updated><entry><title>Berlin Buzzwords 2013</title><link href="http://thesoftjaguar.com/posts/2013/07/30/berlin-buzzwords-2013/" rel="alternate"></link><updated>2013-07-30T09:51:00+02:00</updated><author><name>Dario Blanco</name></author><id>tag:thesoftjaguar.com,2013-07-30:posts/2013/07/30/berlin-buzzwords-2013/</id><summary type="html">&lt;p&gt;&lt;em&gt;Berlin Buzzwords&lt;/em&gt; took place on June 3rd and 4th at &lt;a href="http://kulturbrauerei.de/en"&gt;Kulturbrauerei&lt;/a&gt;, which is an awesome place. &lt;em&gt;Buzzwords&lt;/em&gt; is a conference focused in Open Source technologies, mainly related to search engines, &lt;em&gt;Big Data&lt;/em&gt; and &lt;em&gt;NoSQL&lt;/em&gt; databases, having three main topics: &lt;code&gt;search&lt;/code&gt;, &lt;code&gt;store&lt;/code&gt; and &lt;code&gt;scale&lt;/code&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The soft jaguar</title><link href="http://thesoftjaguar.com/" rel="alternate"></link><link href="http://thesoftjaguar.com/feeds/all.atom.xml" rel="self"></link><id>http://thesoftjaguar.com/</id><updated>2013-07-30T09:51:00+02:00</updated><entry><title>Berlin Buzzwords 2013</title><link href="http://thesoftjaguar.com/posts/2013/07/30/berlin-buzzwords-2013/" rel="alternate"></link><updated>2013-07-30T09:51:00+02:00</updated><author><name>Dario Blanco</name></author><id>tag:thesoftjaguar.com,2013-07-30:posts/2013/07/30/berlin-buzzwords-2013/</id><summary type="html">&lt;p&gt;&lt;em&gt;Berlin Buzzwords&lt;/em&gt; took place on June 3rd and 4th at &lt;a href="http://kulturbrauerei.de/en"&gt;Kulturbrauerei&lt;/a&gt;, which is an awesome place. &lt;em&gt;Buzzwords&lt;/em&gt; is a conference focused in Open Source technologies, mainly related to search engines, &lt;em&gt;Big Data&lt;/em&gt; and &lt;em&gt;NoSQL&lt;/em&gt; databases, having three main topics: &lt;code&gt;search&lt;/code&gt;, &lt;code&gt;store&lt;/code&gt; and &lt;code&gt;scale&lt;/code&gt;. As in FrosCon, ApacheCon or FOSDEM, I went with my colleagues from &lt;a href="http://edelight.de"&gt;edelight&lt;/a&gt;, which sponsored the trip as usual (and is always proposing new events).&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Maschinenhaus" src="http://i.imgur.com/cU6iwfG.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;The main technologies from the talks that I attended were &lt;a href="http://www.elasticsearch.org/"&gt;Elasticsearch&lt;/a&gt;, &lt;a href="http://lucene.apache.org/solr/"&gt;Solr&lt;/a&gt; &lt;a href="http://cassandra.apache.org/"&gt;Cassandra&lt;/a&gt;, &lt;a href="http://hadoop.apache.org/"&gt;Hadoop&lt;/a&gt;, &lt;a href="http://pig.apache.org/"&gt;Pig&lt;/a&gt;, &lt;a href="http://mahout.apache.org/"&gt;Mahout&lt;/a&gt;, &lt;a href="http://fitnesse.org/"&gt;FitNesse&lt;/a&gt;, &lt;a href="http://www.mongodb.org/"&gt;MongoDB&lt;/a&gt;, &lt;a href="http://logstash.net/"&gt;Logstash&lt;/a&gt; and &lt;a href="http://kibana.org/"&gt;Kibana&lt;/a&gt;, among others.&lt;/p&gt;
 &lt;p&gt;Instead of explaining what was going on in each talk that I attended, I have decided to cover the three main areas of the conference.&lt;/p&gt;
@@ -66,35 +66,35 @@
 &lt;h2&gt;The process&lt;/h2&gt;
 &lt;h3&gt;Initializiting the project&lt;/h3&gt;
 &lt;p&gt;I always recommend using &lt;code&gt;virtualenv&lt;/code&gt; and &lt;code&gt;virtualenvwrapper&lt;/code&gt;, and then install the required &lt;code&gt;pip&lt;/code&gt; packages inside the virtual environment. In this case I am using &lt;code&gt;markdown&lt;/code&gt; as a markup format for my blog post, so I am installing it as well:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;mkvirtualenv my-pelican-blog -a ~/my-pelican-blog-project-folder
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;mkvirtualenv my-pelican-blog -a ~/my-pelican-blog-project-folder
 &lt;span class="nv"&gt;$ &lt;/span&gt;pip install -r pelican markdown
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Once you have set up your virtual environment, the cool part begins. Just run the &lt;code&gt;pelican-quickstart&lt;/code&gt; command, and answer each question:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pelican-quickstart
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pelican-quickstart
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;That's going to create the project layout, putting each blogpost markdown file in the &lt;code&gt;content&lt;/code&gt; folder. Running the following command will generate the static HTML files with Pelican's simple theme:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;make html
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;make html
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And well, of course you want to check how the blog is looking like:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;make serve
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;make serve
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;Defining Pelican settings&lt;/h3&gt;
 &lt;p&gt;Now you will see two new files, &lt;code&gt;pelicanconf.py&lt;/code&gt; and &lt;code&gt;publishconf.py&lt;/code&gt;. They are settings files, filled with the answers that you gave running &lt;code&gt;pelican-quickstart&lt;/code&gt;. In my specific case, I tuned them up a bit, for matching my personal requirements.&lt;/p&gt;
 &lt;p&gt;First of all, I wanted to set &lt;em&gt;DISQUS&lt;/em&gt; as external comment system:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;thesoftjaguar&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;thesoftjaguar&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;I also wanted to arrange the post urls by date, for handling &lt;code&gt;archives&lt;/code&gt; later:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Urls&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Urls&lt;/span&gt;
 &lt;span class="n"&gt;ARTICLE_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;posts/{date:%Y}/{date:%m}/{date:&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt;}/{slug}/&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;ARTICLE_SAVE_AS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;posts/{date:%Y}/{date:%m}/{date:&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt;}/{slug}/index.html&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;YEAR_ARCHIVE_SAVE_AS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;posts/{date:%Y}/index.html&amp;#39;&lt;/span&gt;
@@ -103,7 +103,7 @@
 
 
 &lt;p&gt;I activated the feeds for all the posts, categories and tags:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Feeds&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Feeds&lt;/span&gt;
 &lt;span class="n"&gt;FEED_ALL_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;feeds/all.atom.xml&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;FEED_ALL_RSS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;feeds/all.rss.xml&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;CATEGORY_FEED_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;feeds/&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;.atom.xml&amp;#39;&lt;/span&gt;
@@ -114,14 +114,14 @@
 
 
 &lt;p&gt;I also had some static pages that were not going to be generated by Pelican, so it has to know that we want to parse them as well:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;TEMPLATE_PAGES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;TEMPLATE_PAGES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="s"&gt;&amp;#39;projects.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;projects.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Finally, I decided to implement my own theme, using &lt;em&gt;Twitter Bootstrap&lt;/em&gt;. Pelican will check in different places for a folder match, and then it will parse the content from that theme folder:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;bootstrap-theme&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;bootstrap-theme&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -131,7 +131,7 @@
 &lt;p&gt;I copied &lt;a href="https://github.com/getpelican/pelican/tree/master/pelican/themes/simple/templates"&gt;simple theme&lt;/a&gt; template files into my &lt;code&gt;templates&lt;/code&gt; folder, and I editted them. In addition, there is a cool feature in Pelican 3: if it doesn't find a required template file, it will inherit it from the &lt;code&gt;simple&lt;/code&gt; theme, so you don't need to store uneditted simple theme files in your custom theme.&lt;/p&gt;
 &lt;p&gt;Now, you are on your own. You should keep in mind that there are several &lt;a href="http://docs.getpelican.com/en/3.1.1/themes.html#templates-and-variables"&gt;template variables&lt;/a&gt; that you have to use, but that's it.&lt;/p&gt;
 &lt;p&gt;However, I found several problems when I wanted to display the blog archives by year and month, and Pelican's documentation is not really clear about that subject. Using Jinja2 &lt;code&gt;groupby&lt;/code&gt; filter was my way of solving the problem:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="x"&gt;&amp;lt;h1 class=&amp;quot;page-title&amp;quot;&amp;gt;Archive&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;&amp;lt;h1 class=&amp;quot;page-title&amp;quot;&amp;gt;Archive&amp;lt;/h1&amp;gt;&lt;/span&gt;
 &lt;span class="x"&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
 &lt;span class="x"&gt;    &lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;year&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nv"&gt;year_articles&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;articles&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;groupby&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;date.year&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;span class="x"&gt;    &amp;lt;li&amp;gt;&amp;lt;h2&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;year&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&amp;lt;/h2&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
@@ -158,7 +158,7 @@
 &lt;p&gt;&lt;img alt="The groupby result" src="http://i.imgur.com/Ob65o4J.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Writing your first article&lt;/h3&gt;
 &lt;p&gt;Just create a &lt;code&gt;.md&lt;/code&gt; file in the &lt;code&gt;content&lt;/code&gt; folder, and write the metadata, followed by the actual Markdown formatted text:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;Title: Migrating to a Pelican static blog
+&lt;div class="highlight"&gt;&lt;pre&gt;Title: Migrating to a Pelican static blog
 Date: 2013-04-06 02:24
 Tags: static-blog, markdown, pelican, python, web-development, git, django
 Category: programming
@@ -173,7 +173,7 @@ This is the content of my blog post. I should use Markdown here.
 &lt;h3&gt;Deploying to your web server&lt;/h3&gt;
 &lt;p&gt;I have my Pelican project, &lt;a href="https://github.com/sharkerz/thesoftjaguar"&gt;thesoftjaguar&lt;/a&gt;, on Github. However, I don't intend to serve the static files there, because I already have a personal web server.&lt;/p&gt;
 &lt;p&gt;I am using a git post-hook to my personal web server, as explained in &lt;a href="http://thesoftjaguar.com/posts/2012/02/29/deploying-applications-with-git/"&gt;Deploying applications with git&lt;/a&gt;, so I have two remotes in my &lt;code&gt;thesoftjaguar&lt;/code&gt; repository: github and my personal server. But the &lt;code&gt;post-receive&lt;/code&gt; hook is going to be a bit different, because I only want to serve the &lt;code&gt;output&lt;/code&gt; folder:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GIT_WORK_TREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home/dario/git/tmp/thesoftjaguar
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GIT_WORK_TREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home/dario/git/tmp/thesoftjaguar
 
 git checkout -f
 git reset --hard
@@ -183,13 +183,13 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/.&amp
 
 
 &lt;p&gt;And now we add the new remote:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add web dario@darioblanco.com:git/thesoftjaguar.git
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add web dario@darioblanco.com:git/thesoftjaguar.git
 &lt;span class="nv"&gt;$ &lt;/span&gt;git push web +master:refs/heads/master
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;From now on, the deployment is totally independent from the github repo, and is going to be extremely comfortable:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push web master
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push web master
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="static-blog"></category><category term="markdown"></category><category term="pelican"></category><category term="python"></category><category term="web-development"></category><category term="git"></category><category term="django"></category></entry><entry><title>FOSDEM 2013, it is more than beer</title><link href="http://thesoftjaguar.com/posts/2013/03/08/fosdem-2013/" rel="alternate"></link><updated>2013-03-08T20:02:00+01:00</updated><author><name>Dario Blanco</name></author><id>tag:thesoftjaguar.com,2013-03-08:posts/2013/03/08/fosdem-2013/</id><summary type="html">&lt;p&gt;After my long blog hibernation, I wanted to write about &lt;em&gt;FOSDEM 2013&lt;/em&gt;, which took place in Brussels on February 2nd and 3rd, and it wasn't only for drinking beer. OK, you got me, the beer is always a motivating factor.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="We share a dark past" src="http://i.imgur.com/Il4kdf4.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;The Virtualization alternative&lt;/h2&gt;
@@ -252,7 +252,7 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/.&amp
 &lt;p&gt;&lt;img alt="Sublime Package Control" src="http://wbond.net/sublime_packages/img/package_control/command_palette.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;Installing the Sublime Package Control&lt;/h2&gt;
 &lt;p&gt;In Sublime, open the console (&lt;code&gt;Ctrl+`` or&lt;/code&gt;View&amp;gt;Show Console`) and paste the following snippet:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib2&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib2&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="n"&gt;pf&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Package Control.sublime-package&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="n"&gt;ipp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sublime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;installed_packages_path&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;makedirs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ipp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ipp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -322,7 +322,7 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/.&amp
 &lt;p&gt;Highlights all copies of a word that's currently selected, or, optionally, highlights all copies of a word which currently has the insertion cursor upon it.&lt;/p&gt;
 &lt;h2&gt;Themes&lt;/h2&gt;
 &lt;p&gt;When installing a new package through the Package Control, there are some special ones named &lt;code&gt;Themes&lt;/code&gt;. They will change the look and feel of Sublime. Just search them in &lt;code&gt;Package Control:Install Packages&lt;/code&gt; with the string &lt;code&gt;Theme - ThemeName&lt;/code&gt;. For activating the theme just open the User Settings Preferences file (Sublime Text 2 -&amp;gt; Preferences -&amp;gt; Settings - User`) and add, append or update the theme entry like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;theme&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Soda Light.sublime-theme&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;theme&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Soda Light.sublime-theme&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -349,7 +349,7 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/.&amp
 &lt;p&gt;It is a bit tricky to understand this issue so let's put an example. For instance, we have a &lt;code&gt;gps&lt;/code&gt; points list where each of it has &lt;code&gt;latitude&lt;/code&gt;, &lt;code&gt;longitude&lt;/code&gt; and a &lt;code&gt;date&lt;/code&gt;. The date is a &lt;code&gt;datetime&lt;/code&gt; object (let's think about it like &lt;code&gt;year + month +  day&lt;/code&gt;, though it has an hour and the representation of that object is a bit different). Then, we want to organize those points by &lt;code&gt;year&lt;/code&gt;, &lt;code&gt;month&lt;/code&gt; and &lt;code&gt;day&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;For instance, we will have a link per &lt;code&gt;day&lt;/code&gt; to another page, showing with detail all the gps points for that specific day. Those days are grouped by months, and the months by years. Both months and years values will redirect to a page filtering the entries.&lt;/p&gt;
 &lt;p&gt;A possible approach to this problem would be the following piece of code (arranged in a table), where &lt;code&gt;points&lt;/code&gt; is the variable list provided by the view:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;regroup&lt;/span&gt; &lt;span class="nv"&gt;points&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;date&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;date&lt;/span&gt;&lt;span class="s2"&gt;:&amp;quot;Y&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;points_by_year&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;regroup&lt;/span&gt; &lt;span class="nv"&gt;points&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;date&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;date&lt;/span&gt;&lt;span class="s2"&gt;:&amp;quot;Y&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;points_by_year&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="nt"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;entry-content&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
     &lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;year_points&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;points_by_year&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
     &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;table&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
@@ -379,12 +379,12 @@ cp -r &lt;span class="s2"&gt;&amp;quot;$GIT_WORK_TREE/thesoftjaguar/output/.&amp
 
 
 &lt;p&gt;The &lt;code&gt;grouper&lt;/code&gt; variable will show the string of the item that was grouped by, and if it was by year, then it is the year value, because we have filtered it like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;regroup&lt;/span&gt; &lt;span class="nv"&gt;points&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;date&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;date&lt;/span&gt;&lt;span class="s2"&gt;:&amp;quot;Y&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;points_by_year&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;regroup&lt;/span&gt; &lt;span class="nv"&gt;points&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;date&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;date&lt;/span&gt;&lt;span class="s2"&gt;:&amp;quot;Y&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;points_by_year&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Using the following piece of code is another way of creating the url for the next page. We need to specify the &lt;code&gt;nextpage_name&lt;/code&gt; in &lt;code&gt;urls.py&lt;/code&gt; and the other two strings are the arguments, so the server will know what page to show.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;url&lt;/span&gt; &lt;span class="nv"&gt;nextpage_name&lt;/span&gt; &lt;span class="nv"&gt;year_points.grouper&lt;/span&gt; &lt;span class="nv"&gt;month_points.grouper&lt;/span&gt; &lt;span class="nv"&gt;day_points.grouper&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;url&lt;/span&gt; &lt;span class="nv"&gt;nextpage_name&lt;/span&gt; &lt;span class="nv"&gt;year_points.grouper&lt;/span&gt; &lt;span class="nv"&gt;month_points.grouper&lt;/span&gt; &lt;span class="nv"&gt;day_points.grouper&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

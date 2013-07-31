@@ -5,7 +5,7 @@ Category: programming
 Slug: berlin-buzzwords-2013
 Summary: An overview of Berlin Buzzwords main topics, thoughts, comments and more.
 
-*Berlin Buzzwords* took place on June 3rd and 4th at [Kulturbrauerei](http://kulturbrauerei.de/en), which is an awesome place. *Buzzwords* is a conference focused in Open Source technologies, mainly related to search engines, *Big Data* and *NoSQL* databases, having three main topics: `search`, `store` and `scale`.
+*Berlin Buzzwords* took place on June 3rd and 4th at [Kulturbrauerei](http://kulturbrauerei.de/en), which is an awesome place. *Buzzwords* is a conference focused in Open Source technologies, mainly related to search engines, *Big Data* and *NoSQL* databases, having three main topics: `search`, `store` and `scale`. As in FrosCon, ApacheCon or FOSDEM, I went with my colleagues from [edelight](http://edelight.de), which sponsored the trip as usual (and is always proposing new events).
 
 ![Maschinenhaus](http://i.imgur.com/cU6iwfG.jpg)
 
