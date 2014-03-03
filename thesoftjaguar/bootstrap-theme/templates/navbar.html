@@ -7,30 +7,19 @@
 ] -%}
 {% set active_page = active_page|default("blog") -%}
 
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href="{{ SITEURL }}/index.html">The soft jaguar</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-            {% for href, id, caption, icon in navigation_bar %}
-            <li id="{{ id }}-tab" class="navbar-tab {% if id == active_page %}active{% endif %}"><a href="{{ SITEURL }}{{ href|e }}"><i class="{{ icon }} icon-white"></i> {{ caption|e }}</a></li>
-            {% endfor %}
-        </ul>
-        <ul class="nav pull-right">
-            <li><a href="http://www.linkedin.com/in/darioblancoiturriaga" target="_blank" title="LinkedIn"><img width="16" src="{{ SITEURL }}/theme/img/linkedin.png"></a></li>
-            <li><a href="https://github.com/sharkerz" target="_blank" title="Github"><img width="16" src="{{ SITEURL }}/theme/img/github.png"></a></li>
-            <li><a href="https://www.facebook.com/dario.blancoit" target="_blank" title="Facebook"><img width="16" src="{{ SITEURL }}/theme/img/facebook.png"></a></li>
-            <li><a href="https://twitter.com/darioblanco" target="_blank" title="Twitter"><img width="16" src="{{ SITEURL }}/theme/img/twitter.png"></a></li>
-            <li><a href="mailto:dario@darioblanco.com" target="_blank" title="Email"><img width="16" src="{{ SITEURL }}/theme/img/email.png"></a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
+<div class="navbar-header">
+  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a href="/" class="navbar-brand">Home</a>
 </div>
+<nav class="collapse navbar-collapse" role="navigation">
+  <ul class="nav navbar-nav">
+    {% for href, id, caption, icon in navigation_bar %}
+    <li id="{{ id }}-tab" class="navbar-tab {% if id == active_page %}active{% endif %}"><a href="{{ SITEURL }}{{ href|e }}"><i class="{{ icon }} icon-white"></i> {{ caption|e }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
