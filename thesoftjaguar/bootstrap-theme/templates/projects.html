@@ -4,25 +4,112 @@
     {% include "navbar.html" %}
 {% endblock %}
 {% block content %}
-      <div class="hero-unit">
-        <h1>My Projects</h1>
-        <p><br>I like to share my code, it helps me to improve my skills because I can see how I was programming in the past, and have precious feedback from other colleagues.</p>
-      </div>
+<div class="container marketing">
 
-      <div class="row">
-        <div class="span4">
-          <h2>Balam</h2>
-          <p>Own cloud computing system applied to mobile phones. Manages data from Android devices and allows their management from a web application developed with Django over Tornado.</p>
-        </div>
-        <div class="span4">
-          <h2>Blogjaguar</h2>
-          <p>My own blog engine using Django. Blogpost management, categories, links, comment system, WYSIWYG editor, OAuth, theme manager and much more.</p>
-          <p><a class="btn" href="https://github.com/sharkerz/blogjaguar" target="_blank">View project &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>More...</h2>
-          <p>I have more projects on going. You will find unfinished projects (mitosis), informal projects programmed for spending the time, projects as old as the dinosaurs and some contributions.</p>
-          <p><a class="btn" href="https://github.com/sharkerz" target="_blank">Check them in Github &raquo;</a></p>
-        </div>
-      </div>
+  <div class="row featurette">
+    <div class="col-md-5">
+      <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" src="http://i.imgur.com/bBMrgkl.jpg" alt="foodninja">
+    </div>
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><a href="https://metabrolism.com" target="_blank">metabrolism</a> - <span class="text-muted">diets are numbers, and numbers don't lie</span></h2>
+      <p class="lead">A Django portal, using Elasticsearch and PostgreSQL as backends, for managing your diets, trainings and progress log in a social way.</p>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><a href="https://github.com/sharkerz/thesoftjaguar" target="_blank">thesoftjaguar</a> - <span class="text-muted">a static jaguar is a silent jaguar</span></h2>
+      <p class="lead">My static blog, created with <a href="http://docs.getpelican.com/en/3.3.0/" target="_blank">Pelican</a>. It includes <a href="http://docs.fabfile.org/en/1.8/" target="_blank">Fabric</a> support for easing development and deployment. Yes, is the code for the blog that you are currently browsing.</p>
+    </div>
+    <div class="col-md-5">
+      <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" src="http://i.imgur.com/ugRSCvG.jpg" alt="thesoftjaguar">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-5">
+      <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" src="http://i.imgur.com/QNjX7LM.jpg" alt="foodninja">
+    </div>
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><a href="https://github.com/sharkerz/foodninja" target="_blank">foodninja</a> - <span class="text-muted">listen to the ninja or that will be your last meal</span></h2>
+      <p class="lead">A Flask application that recommends the best places where to eat based on your location. It uses Foursquare's API recommendations and some extra magic for avoiding going to the same restaurant. Connect your Foursquare account and it will get a place that suits all your needs!</p>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><a href="https://github.com/sharkerz/thekraken" target="_blank">thekraken</a> - <span class="text-muted">with dangerous releases</span></h2>
+      <p class="lead">A set of Python scripts that check if your domains, machines, services and webpages are down, and sends a notification in that case.</p>
+    </div>
+    <div class="col-md-5">
+      <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" src="http://i.imgur.com/BqijHyS.jpg?1" alt="thekraken">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-5">
+      <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" src="http://i.imgur.com/RtYVO0T.jpg" alt="sayit">
+    </div>
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><a href="https://github.com/sharkerz/sayit" target="_blank">sayit</a> - <span class="text-muted">or shut up forever</span></h2>
+      <p class="lead">A task manager for your daily stand ups, using Redis as a backend. It is extremely simple, with a responsive design, nice with mobile devices.</p>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><a href="https://github.com/sharkerz/howimetyourmedia" target="_blank">howimetyourmedia</a> - <span class="text-muted">I promise you will met it soon</span></h2>
+      <p class="lead">Folder synchronization with Python using paramiko. It just downloads new content based on a timestamp offset, nothing more, nothing less.</p>
+    </div>
+    <div class="col-md-5">
+      <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" src="http://i.imgur.com/2X1KwUL.jpg" alt="howimetyourmedia">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-5">
+      <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" src="http://i.imgur.com/u5QyKoQ.png" alt="sayit">
+    </div>
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><a href="https://github.com/sharkerz/jenkins-calling" target="_blank">jenkins-calling</a> - <span class="text-muted">you better answer the call</span></h2>
+      <p class="lead">Android mobile application that receives push messages from a server (not included) through websockets, and displays Eduard Khil if the build failed, or Keyboard Cat if everything is OK.</p>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- <div class="hero-unit">
+  <h1>My Projects</h1>
+  <p><br>I like to share my code, it helps me to improve my skills because I can see how I was programming in the past, and have precious feedback from other colleagues.</p>
+</div>
+
+<div class="row">
+  <div class="span4">
+    <h2>Balam</h2>
+    <p>Own cloud computing system applied to mobile phones. Manages data from Android devices and allows their management from a web application developed with Django over Tornado.</p>
+  </div>
+  <div class="span4">
+    <h2>Blogjaguar</h2>
+    <p>My own blog engine using Django. Blogpost management, categories, links, comment system, WYSIWYG editor, OAuth, theme manager and much more.</p>
+    <p><a class="btn" href="https://github.com/sharkerz/blogjaguar" target="_blank">View project &raquo;</a></p>
+ </div>
+  <div class="span4">
+    <h2>More...</h2>
+    <p>I have more projects on going. You will find unfinished projects (mitosis), informal projects programmed for spending the time, projects as old as the dinosaurs and some contributions.</p>
+    <p><a class="btn" href="https://github.com/sharkerz" target="_blank">Check them in Github &raquo;</a></p>
+  </div>
+</div> -->
 {% endblock content %}
