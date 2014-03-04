@@ -1,16 +1,15 @@
 {% set navigation_bar = [
-    ('/index.html', 'blog', 'Blog', 'icon-pencil'),
-    ('/archives.html', 'archive', 'Archive', 'icon-briefcase'),
-    ('/tags.html', 'tags', 'Tags', 'icon-certificate'),
-    ('/projects.html', 'projects', 'Projects', 'icon-wrench'),
-    ('/presentations.html', 'presentations', 'Presentations', 'icon-eye-open')
+    ('/index.html', 'blog', 'Blog', 'pencil'),
+    ('/archives.html', 'archive', 'Archive', 'briefcase'),
+    ('/tags.html', 'tags', 'Tags', 'certificate'),
+    ('/projects.html', 'projects', 'Projects', 'wrench'),
+    ('/presentations.html', 'presentations', 'Presentations', 'eye-open')
 ] -%}
 {% set active_page = active_page|default("blog") -%}
 
 
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -20,27 +19,18 @@
       </button>
       <a class="navbar-brand" href="{{ SITEURL }}/index.html">The soft jaguar</a>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         {% for href, id, caption, icon in navigation_bar %}
-        <li id="{{ id }}-tab" class="{% if id == active_page %}active{% endif %}"><a href="{{ SITEURL }}{{ href|e }}"><i class="{{ icon }} icon-white"></i> {{ caption|e }}</a></li>
+        <li id="{{ id }}-tab" class="{% if id == active_page %}active{% endif %}"><a href="{{ SITEURL }}{{ href|e }}"><span class="glyphicon glyphicon-{{ icon }}"></span> {{ caption|e }}</a></li>
         {% endfor %}
       </ul>
-<!--       <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form> -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://www.linkedin.com/in/darioblancoiturriaga" target="_blank" title="LinkedIn"><img width="16" src="{{ SITEURL }}/theme/img/linkedin.png"></a></li>
-        <li><a href="https://github.com/sharkerz" target="_blank" title="Github"><img width="16" src="{{ SITEURL }}/theme/img/github.png"></a></li>
-        <li><a href="https://www.facebook.com/dario.blancoit" target="_blank" title="Facebook"><img width="16" src="{{ SITEURL }}/theme/img/facebook.png"></a></li>
-        <li><a href="https://twitter.com/darioblanco" target="_blank" title="Twitter"><img width="16" src="{{ SITEURL }}/theme/img/twitter.png"></a></li>
-        <li><a href="mailto:dario@darioblanco.com" target="_blank" title="Email"><img width="16" src="{{ SITEURL }}/theme/img/email.png"></a></li>
+        <li><a href="https://www.facebook.com/dario.blancoit" target="_blank" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+        <li><a href="https://twitter.com/darioblanco" target="_blank" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+        <li><a href="https://github.com/sharkerz" target="_blank" title="Github"><span class="fa fa-github"></span></a></li>
+        <li><a href="http://www.linkedin.com/in/darioblancoiturriaga" target="_blank" title="LinkedIn"><span class="fa fa-linkedin"></span></a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
