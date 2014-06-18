@@ -26,7 +26,7 @@ Is scary, but the fix is easy. Make sure you call `rabbitmqctl stop_app` before 
 
 ## The dynamic Erlang ports
 
-This one was the trickiest. The Erlang *epmd* (erlang port mapper daemon) will use two ports ,one for discovering other erlang nodes (port `4369`) and a **dynamic range** for the actual communication. And yes, *RabbitMQ* will use *epmd* for clustering, so I will refer from now to *epmd* only.
+This one was the trickiest. The Erlang *epmd* (erlang port mapper daemon) will use two ports, one for discovering other erlang nodes (port `4369`) and a **dynamic range** for the actual communication. And yes, *RabbitMQ* will use *epmd* for clustering, so I will refer from now to *epmd* only.
 
 For two Erlang nodes to be able to communicate they:
 
@@ -49,7 +49,7 @@ test Erlang nodes on all your machines with:
    erl -sname mytest -setcookie mycookie
 ```
 
-But that command will create a port for communication with other Erlang ports in every invokation. An example command for setting a specific range of Erlang ports will be the following:
+But that command will create a port for communication with other Erlang ports in every invocation. An example command for setting a specific range of Erlang ports will be the following:
 
 ```shell
   erl -sname mytest -setcookie mycookie -kernel inet_dist_listen_min 44001 inet_dist_listen_max 44001
