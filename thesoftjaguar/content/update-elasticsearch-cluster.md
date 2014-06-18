@@ -1,7 +1,7 @@
 Title: Update your Elasticsearch cluster without drama
 Date: 2014-01-24 12:17
-Tags: elasticsearch, lucene, open-source, big-data, java, search, scale
-Category: programming
+Tags: elasticsearch, lucene, open-source, big-data, java, search, scale, distributed, cluster
+Category: search
 Slug: update-elasticsearch-cluster
 Summary: Examples about different updates and migration approaches for your Elasticsearch cluster.
 

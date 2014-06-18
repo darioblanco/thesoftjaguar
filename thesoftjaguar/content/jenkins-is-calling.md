@@ -1,7 +1,7 @@
 Title: Hackathon project: Jenkins is calling
 Date: 2012-09-04 18:59
 Tags: hackathon, jenkins, android, java, websockets, tornado, python
-Category: hackathon
+Category: programming
 Slug: jenkins-is-calling
 Summary: A one day project for annoying the developer whenever the scheduled Jenkins build is broken, and for annoying him a bit more when it is finally fixed.
 

@@ -20,7 +20,7 @@ Generate the site
 Regenerate the site everytime a change is detected
 > $ fab regenerate
 
-Serve locally
+Serve locally in port 8000
 > $ fab serve
 
 Deploy to the desired server through SSH. The config is in `secret.py`, please rename the `secret.py.example` file.

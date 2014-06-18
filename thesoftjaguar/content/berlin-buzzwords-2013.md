@@ -1,7 +1,7 @@
 Title: Berlin Buzzwords 2013
 Date: 2013-07-30 09:51
 Tags: conferences, elasticsearch, solr, lucene, open-source, big-data, java, cassandra, hadoop, pig, search, store, scale
-Category: programming
+Category: conference
 Slug: berlin-buzzwords-2013
 Summary: An overview of Berlin Buzzwords main topics, thoughts, comments and more.
 

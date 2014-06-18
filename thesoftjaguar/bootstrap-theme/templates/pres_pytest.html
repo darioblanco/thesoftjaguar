@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Why pytest?</title>
+
+        <meta name="description" content="Reasons for selecting pytest as testing framework">
+        <meta name="author" content="Dario Blanco">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/reveal/css/reveal.min.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/reveal/css/theme/default.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/reveal/lib/css/zenburn.css">
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown>
+                    <script type="text/template">
+# Why pytest?
+
+### Reasons for selecting pytest as testing framework
+
+June 2014 - Darío Blanco
+
+dario.blanco@wywy.com
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Main reasons
+
+* No boilerplate
+* Failure reports
+* Scalability
+* Fixtures
+* Mocking/Monkeypatching
+* Mature
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## No boilerplate
+
+* Easy to start with
+
+```python
+    # myfunc.py
+    def func(x):
+        return x + 1
+```
+
+```python
+    # test_myfunc.py
+    def test_answer():
+        assert func(1) == 2
+```
+
+* This improves test development speed ** A LOT **
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## No boilerplate
+
+* Using PDB in failures
+
+```shell
+    py.test --pdb
+```
+
+* Profiling test execution duration
+
+```shell
+    py.test --durations=10
+```
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Failure reports
+
+```shell
+  assertion $ py.test failure_demo.py
+  =========================== test session starts ============================
+  platform linux2 -- Python 2.7.3 -- py-1.4.20 -- pytest-2.5.2
+  collected 4 items
+
+  failure_demo.py ...F
+
+  ================================= FAILURES =================================
+  ____________________________ test_generative[0] ____________________________
+
+  param1 = 3, param2 = 6
+
+      def test_generative(param1, param2):
+  >       assert param1 * 2 < param2
+  E       assert (3 * 2) < 6
+
+  failure_demo.py:15: AssertionError
+```
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Exception testing
+
+* Context manager for testing the exceptions
+* Easy way for testing the exception content!!!
+
+```python
+    with pytest.raises(MyException) as excinfo:
+        myfunc()
+    assert excinfo.exconly(tryshort=True) == 'MyException: my message'
+```
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Scalability
+
+* Parametrizing fixtures
+* Set metadata on test functions (e.g slow tests)
+* Expected failures
+* Multiple CPUs (*xdist*)
+* *looponfailing* mode
+* run through SSH or sockets
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Test grouping
+
+* Grouping test in a class only if you want to
+
+```python
+    # content of test_class.py
+    class TestClass:
+        def test_one(self):
+            x = "this"
+            assert 'h' in x
+
+        def test_two(self):
+            x = "hello"
+            assert hasattr(x, 'check')
+```
+
+* Forget about *self.assertBlah()*
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Test grouping
+
+* Group by modules, setting a module level setup and teardown
+
+```python
+    def setup_module(module):
+        """Creates fixture file"""
+        with open(sample_path, 'wb') as sample_file:
+            sample_file.write('\xff\x81\x00!\x01B\x01\xf2\x00m')
+
+
+    def teardown_module(module):
+        """Removes fixture file"""
+        os.remove(sample_path)
+```
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Temporary directories and files
+
+* **tmpdir** function argument as os.path object
+* Using the system temporary directory by default
+* Folder structure: **pytest-NUM**
+* Automatic deletion (older than 3)
+* e.g. avoid setup a file creation and teardown with its deletion
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Temporary directories and files
+
+```python
+    # content of test_tmpdir.py
+    import os
+
+
+    def test_create_file(tmpdir):
+        """Checks a file is created in pytest's temporary directory"""
+        p = tmpdir.mkdir("sub").join("hello.txt")
+        p.write("content")
+        assert p.read() == "content"
+        assert len(tmpdir.listdir()) == 1
+```
+* This will create a file in ``/tmp/pytest-NUM/test_create_file0/sub/hello.txt)``
+* You can change the temporary directory
+```shell
+    py.test --basetemp=mydir
+```
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## conftest.py
+
+* Contains directory-specific hook implementations
+* Global configuration for the project tests
+* Excellent for setting global fixtures and mocks
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Fixtures
+
+* Objects that the test functions will receive
+* Scope for sharing fixtures (e.g this test module or the whole session)
+* Yield fixtures
+* Parametrized fixtures
+* Invoke fixtures automatically (autouse)
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## An example of using fixtures: Flask testing
+
+```python
+    # conftest.py content
+    @pytest.fixture(scope='session')
+    def app(request):
+        """Creates a Flask app object fixture"""
+        app = create_app(db_path=TEST_DB_PATH, debug=True, testing=True)
+
+        # Establish an application context before running the tests.
+        ctx = app.app_context()
+        ctx.push()
+
+        def teardown():
+            ctx.pop()
+
+        request.addfinalizer(teardown)
+        return app
+```
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## An example of using fixtures: Flask testing
+
+```python
+    # test_api.py content
+    def test_list_devices(app):
+        """Checks that no devices are returned in the first API call"""
+        with app.test_client() as c:
+            resp = c.get('/api/device')
+
+        assert resp.status_code == 200
+        assert resp.mimetype == 'application/json'
+
+        expected_data = {
+            "num_results": 0,
+            "objects": [],
+            "page": 1,
+            "total_pages": 0
+        }
+        assert json.loads(resp.data.decode()) == expected_data
+```
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Mocking/Monkeypatching
+
+* Attributes
+* Dictionary entries
+* Environment variables
+* sys.path locations
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Mocking/Monkeypatching
+
+```python
+    def test_generate_permission_url(monkeypatch):
+        """Checks the permission url format"""
+        monkeypatch.setattr('gandalf.handlers.dbm._format_url_params',
+                            lambda x: 'param1&param2')
+
+        permission_url = dbm.generate_permission_url('1234')
+        expected_permission_url = '{}/o/oauth2/auth?param1&param2'.format(
+            DBM['accounts_base_url'])
+        assert permission_url == expected_permission_url
+```
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Mocking/Monkeypatching
+
+```python
+    # content of conftest.py
+    import fabric.state
+    import pytest
+
+    # Our project function, gives a custom Python logger
+    from rags.log import get_logger
+
+
+    @pytest.fixture(autouse=True)
+    def set_log_handler(monkeypatch):
+        """Sets the fabric log env variable with a test log handler"""
+        # Set the env.log (or env['log']) variable with our custom Logger
+        monkeypatch.setitem(fabric.state.env, 'log', get_logger('test'))
+```
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Mature
+
+* Has been around since 2005
+* Looks new because the interest is recent
+![Interest in the pytest library](http://i.imgur.com/HCXTHpG.png)
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+
+
+### Useful documentation
+
+* [Pytest documentation](http://pytest.org/latest/contents.html#toc)
+* [Testing your code (The Hitchhiker's Guide to Python)](http://docs.python-guide.org/en/latest/writing/tests/)
+
+
+
+
+
+                    </script>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="{{ SITEURL }}/theme/reveal/js/head.min.js"></script>
+        <script src="{{ SITEURL }}/theme/reveal/js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: 'night',
+                transition: 'fade',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: '{{ SITEURL }}/theme/reveal/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '{{ SITEURL }}/theme/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '{{ SITEURL }}/theme/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '{{ SITEURL }}/theme/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '{{ SITEURL }}/theme/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: '{{ SITEURL }}/theme/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: '{{ SITEURL }}/theme/reveal/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: '{{ SITEURL }}/theme/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+        </script>
+
+    </body>
+</html>

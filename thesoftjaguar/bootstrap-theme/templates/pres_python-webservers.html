@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ SITEURL }}/theme/reveal/css/theme/default.css" id="theme">
 
         <!-- For syntax highlighting -->
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/reveal/css/theme/beige.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/reveal/lib/css/zenburn.css">
 
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
         <script>
@@ -35,10 +35,10 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 # Python WSGI servers
 
@@ -46,7 +46,7 @@
 
 
 
-June 2013 - Darío Blanco  
+June 2013 - Darío Blanco
 
 dario.blanco@edelight.de
 
@@ -57,10 +57,10 @@ dario.blanco@edelight.de
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Best practices
 
@@ -83,10 +83,10 @@ dario.blanco@edelight.de
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## How can I serve my python webapp?
 
@@ -111,10 +111,10 @@ Web servers should support the **WSGI protocol** (as a module or natively).
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## How can I serve my python webapp?
 
@@ -131,10 +131,10 @@ Web servers should support the **WSGI protocol** (as a module or natively).
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Non-Python-based web servers
 
@@ -155,10 +155,10 @@ We may want static files, proxying, security (SSL/TLS, LDAP...), virtual hosts, 
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Apache MPM module
 
@@ -166,7 +166,7 @@ We may want static files, proxying, security (SSL/TLS, LDAP...), virtual hosts, 
 
 * Better than the **prefork model** (thread per request instead of process per request)
 
-* **Worker pool** reduces overhead when starting and destroying processes 
+* **Worker pool** reduces overhead when starting and destroying processes
 
  * Still **context switches** between threads in one CPU
 
@@ -177,10 +177,10 @@ We may want static files, proxying, security (SSL/TLS, LDAP...), virtual hosts, 
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Apache MPM module
 
@@ -213,10 +213,10 @@ We may want static files, proxying, security (SSL/TLS, LDAP...), virtual hosts, 
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Apache MPM module
 
@@ -229,10 +229,10 @@ We may want static files, proxying, security (SSL/TLS, LDAP...), virtual hosts, 
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Nginx Core module
 
@@ -251,10 +251,10 @@ We may want static files, proxying, security (SSL/TLS, LDAP...), virtual hosts, 
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Nginx Core module
 
@@ -283,10 +283,10 @@ We may want static files, proxying, security (SSL/TLS, LDAP...), virtual hosts, 
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Nginx Event Loop
 
@@ -299,10 +299,10 @@ We may want static files, proxying, security (SSL/TLS, LDAP...), virtual hosts, 
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Nginx Event Loop
 
@@ -313,20 +313,20 @@ We may want static files, proxying, security (SSL/TLS, LDAP...), virtual hosts, 
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Maximum number of clients in Nginx
 
-`Nginx` uses **file descriptors** from the same **pool** 
+`Nginx` uses **file descriptors** from the same **pool**
 
 ``` bash
 
     max clients = worker_processes * worker_connections
 
-```  
+```
 
 
 
@@ -336,7 +336,7 @@ A **browser** usually opens 2 persistent connections by default (HTTP 1.1)...
 
     max clients = worker_processes * worker_connections/2
 
-```  
+```
 
 
 
@@ -353,14 +353,14 @@ And as a **reverse proxy**, it uses an extra connection to the backend
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## The Reverse Proxy dilemma
 
-Embed `python` (`mod_wsgi` or `NgxWSGIModule`) or just act as a **reverse proxy** to other `python` web server?  
+Embed `python` (`mod_wsgi` or `NgxWSGIModule`) or just act as a **reverse proxy** to other `python` web server?
 
 ![Reverse Proxy](http://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Reverse_proxy_h2g2bob.svg/400px-Reverse_proxy_h2g2bob.svg.png)
 
@@ -371,10 +371,10 @@ Embed `python` (`mod_wsgi` or `NgxWSGIModule`) or just act as a **reverse proxy*
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## The Reverse Proxy dilemma
 
@@ -395,16 +395,16 @@ Running `python` in a separate process:
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Some famous Python WSGI servers
 
 
 
-Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **GEvent**, **Gunicorn** , httpy, Magnum Py, Medusa, Apache + ModPython, **Nginx + NgxWSGIModule**, Rocket, Spawning, **uWSGI**, **Tornado**, **Twisted**, Waitress, ...  
+Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **GEvent**, **Gunicorn** , httpy, Magnum Py, Medusa, Apache + ModPython, **Nginx + NgxWSGIModule**, Rocket, Spawning, **uWSGI**, **Tornado**, **Twisted**, Waitress, ...
 
 
 
@@ -413,10 +413,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Oh God! There are many!
 
@@ -431,10 +431,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Let's select some
 
@@ -459,10 +459,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Why?
 
@@ -487,10 +487,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Apache mod_wsgi
 
@@ -515,10 +515,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## gevent
 
@@ -549,10 +549,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Gunicorn
 
@@ -583,10 +583,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Nginx + NgxWSGIModule
 
@@ -609,10 +609,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Tornado
 
@@ -633,10 +633,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## uWSGI
 
@@ -659,10 +659,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## uWSGI
 
@@ -687,20 +687,20 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## The Final Step
 
-* **Web servers**  
+* **Web servers**
 
   * `Apache` + `mod_wsgi`
 
   * `Nginx` + `uWSGI`
 
-* **Web framework**  
+* **Web framework**
 
   * `Flask` (*WalterWhiteWeb*)
 
@@ -711,10 +711,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## WalterWhiteWeb
 
@@ -735,10 +735,10 @@ Aspen, **Apache + mod_wsgi**, CherryPy, Cogen, Concurrence, Eventlet, FAPWS3, **
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## WalterWhiteWeb
 
@@ -775,10 +775,10 @@ def index():
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## WalterWhiteWeb
 
@@ -791,10 +791,10 @@ def index():
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Apache + mod_wsgi deployment
 
@@ -833,10 +833,10 @@ def index():
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Apache + mod_wsgi deployment
 
@@ -859,10 +859,10 @@ def index():
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Nginx + uWSGI deployment
 
@@ -897,10 +897,10 @@ Execute the backend `uWSGI` server
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 
 
@@ -941,10 +941,10 @@ Or use a `uwsgiconfig.ini` file when running uWSGI
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Nginx + uWSGI deployment
 
@@ -973,10 +973,10 @@ or
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Differences with Nginx + Gunicorn
 
@@ -1013,10 +1013,10 @@ or
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Differences with Nginx + Gunicorn
 
@@ -1051,10 +1051,10 @@ or
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Benchmark tool
 
@@ -1079,10 +1079,10 @@ or
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Benchmark configuration
 
@@ -1105,10 +1105,10 @@ or
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## The Endpoint
 
@@ -1125,10 +1125,10 @@ or
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## The Server set-up
 
@@ -1151,10 +1151,10 @@ or
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Benchmark results
 
@@ -1165,10 +1165,10 @@ or
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## uWSGI improvements
 
@@ -1193,10 +1193,10 @@ There can be even more **improvements**
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ## Conclusions
 
@@ -1223,10 +1223,10 @@ There can be even more **improvements**
 
                     </script>
                 </section>
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                        
+
 
 ### Darío Blanco
 
@@ -1241,7 +1241,7 @@ Some related projects in my [sharkerz@github](https://github.com/sharkerz) accou
 
                     </script>
                 </section>
-                
+
             </div>
 
         </div>
@@ -1259,7 +1259,7 @@ Some related projects in my [sharkerz@github](https://github.com/sharkerz) accou
                 history: true,
                 center: true,
 
-                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                theme: 'beige'
                 transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
                 // Optional libraries used to extend on reveal.js

@@ -18,7 +18,8 @@ THEME = 'bootstrap-theme'
 TEMPLATE_PAGES = {
     'projects.html': 'projects.html',
     'presentations.html': 'presentations.html',
-    'pres_python-webservers.html': 'pres_python-webservers.html'
+    'pres_python-webservers.html': 'pres_python-webservers.html',
+    'pres_pytest.html': 'pres_pytest.html'
 }
 
 # Urls

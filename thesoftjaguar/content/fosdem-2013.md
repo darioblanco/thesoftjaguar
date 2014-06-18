@@ -1,7 +1,7 @@
 Title: FOSDEM 2013, it is more than beer
 Date: 2013-03-08 20:02
 Tags: conferences, python, ruby, devops, virtualization, tdd, open-source
-Category: programming
+Category: conference
 Slug: fosdem-2013
 Summary: What was going on at the FOSDEM event, and my thoughts about the talks that I have attended.
 
