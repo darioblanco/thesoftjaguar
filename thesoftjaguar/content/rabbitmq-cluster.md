@@ -2,7 +2,7 @@ Title: My trip through RabbitMQ clustering, now with more turbulences
 Date: 2014-06-18 17:12
 Tags: rabbitmq, queue, erlang, distributed, cluster
 Category: queue
-Slug: rabbitmq-clustering
+Slug: rabbitmq-cluster
 Summary: How to set up a RabbitMQ cluster with a Firewall behind and non dynamic Erlang epmd ports.
 
 I actually wanted to create a small blogpost, just for once, for creating a *RabbitMQ* cluster. It looks easy, but can be tricky, even if you follow the [RabbitMQ Clustering Guide](https://www.rabbitmq.com/clustering.html). So yeah, first read the guide and then read my blogpost, I will cover the problems I found for creating the cluster here.
