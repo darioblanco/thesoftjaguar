@@ -11,6 +11,23 @@ When you start having a big infrastructure, and so many checks in critical syste
 
 How do we achieve this behavior within sensu? We will need to address four different concepts: the standard check, the remediator handler, and the unpublished remediation check.
 
+## The client configuration
+
+It's worth mentioning each sensu host has a ``client.json`` config, and as the remediator will use the subscriptions list with the hostname, it is necessary to suscribe each host to its hostname (thanks Kenny Garland for the reminder).
+
+Something like this in ``/etc/sensu/conf.d/client.json``:
+
+```json
+{
+  "client": {
+    "name": "myhost.foo.var.com",
+    "address": "192.168.1.1",
+    "subscriptions": [
+      "myhost.foo.var.com"
+    ],
+    ...
+}
+```
 
 ## The standard check
 
@@ -71,7 +88,8 @@ Remember our previous check example? Now you need to extend it for using the rem
         "remediate-zookeeper-proc": {
           "occurrences": [1, 3],
           "severities": [2]
-        }
+        },
+      "trigger_on": ["zookeper"]
     }
   }
 }
