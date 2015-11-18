@@ -101,7 +101,7 @@ First of all, the remediation handler will verify if the check output is having 
 
 Once the severity matches the expected one, the remediator will verify if the check occurrence is one of the defined in the config. In the example, remediation will work only in the first and third critical alert.
 
-If you want to achieve a completely different behavior, like a range of occurrences, I recommend you to check the [source code]([remediator handler](https://github.com/sensu/sensu-community-plugins/blob/master/handlers/remediation/sensu.rb)).
+If you want to achieve a completely different behavior, like a range of occurrences, I recommend you to check the [source code](https://github.com/sensu/sensu-community-plugins/blob/master/handlers/remediation/sensu.rb)).
 
 
 ## The unpublished remediation check
