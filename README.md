@@ -50,6 +50,6 @@ If you see
 When running Pelican under Mac OS X Mavericks, make sure you add the following lines to your `.bashrc` or `.zshrc` profile:
 
 ```shell
-    export LC_ALL=en_US.UTF-8
-    export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 ```
