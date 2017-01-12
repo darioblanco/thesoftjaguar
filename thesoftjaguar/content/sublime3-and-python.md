@@ -5,7 +5,7 @@ Category: programming
 Slug: sublime3-and-python
 Summary: How to set up a nice Python environment with Sublime Text 3.
 
-This blogpost is a continuation from [Useful Sublime Packages](|filename|/useful-sublime-packages.md). The old one recommends outdated packages and I am not using Sublime Text 2 anymore, I switched to Sublime Text 3.
+This blogpost is a continuation from [Useful Sublime Packages]({filename}useful-sublime-packages.md). The old one recommends outdated packages and I am not using Sublime Text 2 anymore, I switched to Sublime Text 3.
 
 Though Sublime 3 is still on beta, I find it pretty mature, faster, with easier configuration, a lot of nice packages and filling all my development needs. It was a pretty easy choice for me.
 

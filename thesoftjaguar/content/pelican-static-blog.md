@@ -16,7 +16,7 @@ Instead of having a server side application which is going to parse the client r
 
 And there are many questions... How? We don't really need an admin interface for writing a blog post: we can do it directly creating another HTML page. We don't need our own comment system, we can include an external one like *Disqus*. We don't need to register users in our page, they don't want to register in a blog. There are many tasks that we can do without creating the HTML pages dynamically.
 
-Fine, now you are thinking that this is a mess, why should you be editting the HTML pages every time you want to create a new blog entry? It seems easier with an administration panel and a WYSWYG editor. And that's why we have static blog generators. 
+Fine, now you are thinking that this is a mess, why should you be editting the HTML pages every time you want to create a new blog entry? It seems easier with an administration panel and a WYSWYG editor. And that's why we have static blog generators.
 
 
 ## The static blog generator
@@ -169,7 +169,7 @@ Save the file, run `make html`, and that's it.
 
 I have my Pelican project, [thesoftjaguar](https://github.com/sharkerz/thesoftjaguar), on Github. However, I don't intend to serve the static files there, because I already have a personal web server.
 
-I am using a git post-hook to my personal web server, as explained in [Deploying applications with git](|filename|deploying-applications-with-git.md), so I have two remotes in my `thesoftjaguar` repository: github and my personal server. But the `post-receive` hook is going to be a bit different, because I only want to serve the `output` folder:
+I am using a git post-hook to my personal web server, as explained in [Deploying applications with git]({filename}deploying-applications-with-git.md), so I have two remotes in my `thesoftjaguar` repository: github and my personal server. But the `post-receive` hook is going to be a bit different, because I only want to serve the `output` folder:
 
     :::bash
     export GIT_WORK_TREE=/home/dario/git/tmp/thesoftjaguar
