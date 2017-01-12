@@ -3,7 +3,7 @@
 
 AUTHOR = u'Dario Blanco'
 SITENAME = u'The soft jaguar'
-SITEURL = ''
+SITEURL = 'http://thesoftjaguar.com'
 
 TIMEZONE = 'Europe/Paris'
 
